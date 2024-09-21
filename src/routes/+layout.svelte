@@ -1,7 +1,39 @@
 <script lang="ts">
-  import face from '$lib/assets/face2.jpg'
+  import { writable } from "svelte/store"
+  import { onMount } from "svelte"
+  import face from "$lib/assets/face2.jpg"
+  import sun from "$lib/assets/sun.svg"
+  import moon from "$lib/assets/moon.svg"
+
+  const isDarkMode = writable(false)
+
+  function initMode() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      isDarkMode.set(true)
+    } else {
+      isDarkMode.set(false)
+    }
+
+    onMount(() => {
+      initMode()
+      setInterval(() => {
+        initMode()
+      }, 1);
+    })
+  }
+
+  function toggleMode() {
+    isDarkMode.update(v => !v)
+  }
 </script>
 
+<div id="header">
+  {#if isDarkMode}
+    <div style="mask-image: url({sun});"></div>
+  {:else}
+    <div style="mask-image: url({moon});"></div>
+  {/if}
+</div>
 <div id="profile">
   <img src={face} alt="" id="face">
   <div id="bio" class="margin24">
@@ -76,6 +108,20 @@
     --foreground: light-dark(#305aaf, #fff);
     --foreground2: light-dark(#c0107a,#ffa3da);
     color-scheme: light dark;
+  }
+
+  #header {
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    width: 100%;
+    height: 48px;
+    div {
+      margin: 12px;
+      background-color: var(--foreground);
+      height: 40px;
+      width: 40px;
+    }
   }
 
   .table {
