@@ -1,9 +1,9 @@
 <script lang="ts">
   import { writable } from "svelte/store"
   import { onMount } from "svelte"
-  import face from "$lib/assets/face2.jpg"
   import sun from "$lib/assets/sun.svg"
   import moon from "$lib/assets/moon.svg"
+    import { page } from "$app/stores";
 
   const isDarkMode = writable(false)
 
@@ -25,6 +25,13 @@
   function toggleMode() {
     isDarkMode.update(v => !v)
   }
+
+  const tabs = [
+    {id: "/", title: "プロフィール"},
+    {id: "/career", title: "経歴"},
+    {id: "/hobby", title: "趣味"}
+  ]
+
 </script>
 
 <div id="header">
@@ -34,43 +41,22 @@
     <div style="mask-image: url({moon});"></div>
   {/if}
 </div>
-<div id="profile">
-  <img src={face} alt="" id="face">
-  <div id="bio" class="margin24">
-    <h1 id="name">佐藤 海音 | Sato Kaito</h1>
-    <div class="table">
-      <div class="table-row">
-        <div class="table-cell">所属</div>
-        <div class="table-cell">新潟大学大学院自然科学研究科数理物質科学専攻 M1</div>
-      </div>
-      <div class="table-row">
-        <div class="table-cell">資格</div>
-        <div class="table-cell">応用情報技術者試験(R1年度秋試験)</div>
-      </div>
-      <div class="table-row">
-        <div class="table-cell">現住所</div>
-        <div class="table-cell">新潟市</div>
-      </div>
-      <div class="table-row">
-        <div class="table-cell">趣味</div>
-        <div class="table-cell">猫・万年筆・紅茶・作曲</div>
-      </div>
-      <div class="table-row">
-        <div class="table-cell">GitHub</div>
-        <div class="table-cell"><a href='https://github.com/skpub'>skpub</a></div>
-      </div>
-      <div class="table-row">
-        <div class="table-cell">X</div>
-        <div class="table-cell"><a href='https://x.com/OMGR_dearinsu'>OMGR_dearinsu</a> (閲覧を推奨しないが歓迎する)</div>
-      </div>
-      <div class="table-row">
-        <div class="table-cell">Email</div>
-        <div class="table-cell"><span id="mail">f24a059h☆mail.cc.niigata-u.ac.jp</span></div>
-      </div>
+<div id="main">
+  <div id="tab_container">
+    <div id="tabs">
+      {#each tabs as tab}
+        {#if tab.id === $page.url.pathname}
+          <p id="selected">{tab.title}</p>
+        {:else}
+          <a href={tab.id}><p>{tab.title}</p></a>
+        {/if}
+      {/each}
     </div>
   </div>
+  <div id="slot_container">
+    <slot />
+  </div>
 </div>
-<slot />
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
@@ -78,7 +64,7 @@
   @import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=Zen+Kurenaido&display=swap');
 
   :global(body) {
-    background-color: light-dark(#faf6f3, #302e2a);
+    background-color: var(--background);
     color: light-dark(#305aaf, #fff);
     * {
       font-family: var(--gothic1);
@@ -105,6 +91,7 @@
     --gothic1: "Zen Maru Gothic";
     --gothic2: "BIZ UDGothic";
     --letter1: "Zen Kurenaido";
+    --background: light-dark(#faf6f3, #302e2a);
     --foreground: light-dark(#305aaf, #fff);
     --foreground2: light-dark(#c0107a,#ffa3da);
     color-scheme: light dark;
@@ -114,7 +101,7 @@
     display: flex;
     justify-content: end;
     position: absolute;
-    width: 100%;
+    right: 0;
     height: 48px;
     div {
       margin: 12px;
@@ -124,54 +111,36 @@
     }
   }
 
-  .table {
-    display: table;
+  #tabs {
+    margin-right: 24px;
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 12px;
+    }
+    a {
+      color: var(--foreground)
+    }
+    a:hover {
+      color: var(--foreground2)
+    }
   }
 
-  .table-row {
-    display: table-row;
-  }
-  .table-cell:nth-child(1) {
-    padding-right: 24px;
-  }
-
-  .table-cell {
-    display: table-cell;
+  #selected {
+    /* background-color: var(--foreground); */
+    /* color: var(--background) */
+    border-radius: 10px;
+    background: #302e2a;
+    box-shadow: inset 3px 3px 5px #1b1a18,
+            inset -3px -3px 5px #45423c;
   }
 
-  #face {
-    margin-left: 24px;
-    box-shadow:  10px 10px 20px light-dark(#918f8d,#292724),
-             -10px -10px 20px light-dark(#ffffff, #373530);
-  }
-
-  #mail {
-    font-family: monospace;
-  }
-
-  #profile {
+  #main {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100dvh;
-    img {
-      border-radius: 5%;
-      width: 200px;
-      height: 200px;
-    }
-    h1 {
-      font-family: var(--letter1);
-    }
   }
-  @media (max-aspect-ratio: 1/1) {
-    #face {
-      margin-left: 0px;
-    }
-    #name {
-      text-align: center;
-    }
-    #profile {
-      flex-flow: column;
-    }
+
+  #slot_container {
+    z-index: -1;
+    flex-grow: 1;
   }
 </style>

@@ -1,83 +1,103 @@
 <script lang="ts">
-  import Career from "$lib/components/career.svelte";
-  import Hobby from "$lib/components/hobby.svelte";
-  import bag from "$lib/assets/bag.svg";
-  import hobby from "$lib/assets/hobby.svg"
-  
-  enum ContentType {
-    Career,
-    Hobby
-  }
-  const contents = [
-    {id: ContentType.Career, icon: bag,   title: "履歴",  page: Career},
-    {id: ContentType.Hobby,  icon: hobby, title: "趣味",  page: Hobby}
-  ]
-  let activeTabId = 0
-  function selectPage(id: ContentType) {
-    activeTabId = id
-  }
+  import face from "$lib/assets/face2.jpg"
 </script>
 
-<div id="main">
-  <div id="contents_list">
-    {#each contents as tab}
-      {#if activeTabId === tab.id}
-      <div id="tab" class="selected">
-        <div id="tab_icon" style="mask-image: url({tab.icon});"></div>
-        <p>{tab.title}</p>
+<div id="profile">
+  <img src={face} alt="" id="face">
+  <div id="bio" class="margin24">
+    <h1 id="name">佐藤 海音 | Sato Kaito</h1>
+    <div class="table">
+      <div class="table-row">
+        <div class="table-cell">所属</div>
+        <div class="table-cell">新潟大学大学院自然科学研究科数理物質科学専攻 M1</div>
       </div>
-      {:else}
-      <div id="tab" on:click={() => selectPage(tab.id)}>
-        <!-- <img src={tab.icon} alt=""> -->
-        <div id="tab_icon" style="mask-image: url({tab.icon});"></div>
-        <p>{tab.title}</p>
+      <div class="table-row">
+        <div class="table-cell">資格</div>
+        <div class="table-cell">応用情報技術者試験(R1年度秋試験)</div>
       </div>
-      {/if}
-    {/each}
-  </div>
-  <div id="main_content">
-    {#each contents as tab}
-      {#if activeTabId === tab.id}
-        <svelte:component this={tab.page} />
-      {/if}
-    {/each}
+      <div class="table-row">
+        <div class="table-cell">現住所</div>
+        <div class="table-cell">新潟市</div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">趣味</div>
+        <div class="table-cell">猫・万年筆・紅茶・作曲</div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">GitHub</div>
+        <div class="table-cell"><a href='https://github.com/skpub'>skpub</a></div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">X</div>
+        <div class="table-cell"><a href='https://x.com/OMGR_dearinsu'>OMGR_dearinsu</a> (閲覧を推奨しないが歓迎する)</div>
+      </div>
+      <div class="table-row">
+        <div class="table-cell">Email</div>
+        <div class="table-cell"><span id="mail">f24a059h☆mail.cc.niigata-u.ac.jp</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
-  #tab_icon {
-    width: 40px;
-    height: 40px;
-    background-color: var(--foreground);
-  }
-  #tab {
-    width: 150px;
-    height: 40px;
-    padding: 6px;
-    padding-left: 12px;
-    padding-right: 12px;
+  #profile {
+    position: absolute;
+    left: 0;
+    width: 100dvw;
     display: flex;
+    justify-content: center;
     align-items: center;
-  }
-  #tab:hover {
-    transform: translate(2px, 2px);
-    backdrop-filter: brightness(90%);
-  }
-  .selected {
-    backdrop-filter: sepia();
-  }
-  #contents_list {
-    display: flex;
-    color: var(--foreground2);
-    flex-direction: column;
-  }
-  #main {
-    display: flex;
     min-height: 100dvh;
+    img {
+      border-radius: 5%;
+      width: 200px;
+      height: 200px;
+    }
+    h1 {
+      font-family: var(--letter1);
+    }
   }
-  #main_content {
+  .table {
+    display: table;
+  }
+
+  .table-row {
+    display: table-row;
+  }
+  .table-cell:nth-child(1) {
+    padding-right: 24px;
+  }
+
+  .table-cell {
+    display: table-cell;
+  }
+
+  #face {
     margin-left: 24px;
+    box-shadow:  10px 10px 20px light-dark(#918f8d,#292724),
+             -10px -10px 20px light-dark(#ffffff, #373530);
   }
+
+  #mail {
+    font-family: monospace;
+  }
+  @media (max-aspect-ratio: 1/1) {
+    #face {
+      margin-left: 0px;
+    }
+    #name {
+      text-align: center;
+    }
+    #profile {
+      flex-flow: column;
+    }
+  }
+
+
+
+
+
+
   @media screen and (min-width: 1520px) {
     #contents_list {
       display: flex;
