@@ -71,8 +71,8 @@
 
   #face {
     margin-left: 24px;
-    box-shadow:  10px 10px 20px light-dark(#918f8d,#292724),
-             -10px -10px 20px light-dark(#ffffff, #373530);
+    box-shadow: 10px 10px 20px color-mix(in srgb, var(--background) 95%, black 5%),
+                -10px -10px 20px color-mix(in srgb, var(--background) 95%, white 5%);
   }
 
   #mail {

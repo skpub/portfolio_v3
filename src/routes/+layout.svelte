@@ -11,26 +11,26 @@
     import { goto } from "$app/navigation";
 
 
-  const isDarkMode = writable(false)
-
-  function initMode() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      isDarkMode.set(true)
-    } else {
-      isDarkMode.set(false)
-    }
-
-    onMount(() => {
-      initMode()
-      setInterval(() => {
-        initMode()
-      }, 1);
-    })
-  }
+  let isDarkMode = writable(false)
 
   function toggleMode() {
     isDarkMode.update(v => !v)
   }
+
+  onMount(() => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      isDarkMode.update(v => true)
+    }
+    isDarkMode.subscribe(v => {
+      if (v) {
+        document.documentElement.classList.remove("dark")
+        document.documentElement.classList.add("light")
+      } else {
+        document.documentElement.classList.remove("light")
+        document.documentElement.classList.add("dark")
+      }
+    })
+  })
 
   const tabs = [
     {id: "/", title: "プロフィール", icon: prof},
@@ -40,11 +40,11 @@
 
 </script>
 
-<div id="header">
-  {#if isDarkMode}
-    <div style="mask-image: url({sun});"></div>
-  {:else}
+<div id="header" on:click={toggleMode}>
+  {#if $isDarkMode}
     <div style="mask-image: url({moon});"></div>
+  {:else}
+    <div style="mask-image: url({sun});"></div>
   {/if}
 </div>
 <div id="main">
@@ -76,7 +76,6 @@
 
   :global(body) {
     background-color: var(--background);
-    color: light-dark(#305aaf, #fff);
     * {
       font-family: var(--gothic1);
     }
@@ -99,14 +98,27 @@
     color: var(--foreground2);
   }
   :root {
+    color: var(--foreground);
     --gothic1: "Zen Maru Gothic";
     --gothic2: "BIZ UDGothic";
     --letter1: "Zen Kurenaido";
-    --background: light-dark(#faf6f3, #302e2a);
+    /* --background: light-dark(#faf6f3, #302e2a);
     --foreground: light-dark(#305aaf, #fff);
     --foreground2: light-dark(#c0107a,#ffa3da);
-    --shadow: light-dark(#999795,#161614);
+    --shadow: light-dark(#999795,#161614); */
     color-scheme: light dark;
+  }
+  :root.dark {
+    --background:   #302e2a;
+    --foreground:   #fff;
+    --foreground2:  #ffa3da;
+    --shadow:       #161614;
+  }
+  :root.light {
+    --background:   #faf6f3;
+    --foreground:   #305aaf;
+    --foreground2:  #c0107a;
+    --shadow:       #999795;
   }
 
   #header {
@@ -130,6 +142,9 @@
   .tab {
     display: flex;
     align-items: center;
+    :not(#selected):hover {
+      backdrop-filter: brightness(80%);
+    }
     div {
       background: var(--foreground);
       mask-repeat: no-repeat;
