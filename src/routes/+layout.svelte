@@ -8,6 +8,7 @@
   import hobby from "$lib/assets/hobby.svg"
   import prof from "$lib/assets/prof.svg"
   import { page } from "$app/stores";
+    import { goto } from "$app/navigation";
 
 
   const isDarkMode = writable(false)
@@ -55,13 +56,13 @@
           <p>{tab.title}</p>
         </div>
       {:else}
-        <div class="right-shadow tab">
+        <div class="tab-shadow tab" on:click={goto(tab.id)}>
           <div style="mask-image: url({tab.icon})"></div>
-          <a href={tab.id}><p>{tab.title}</p></a>
+          <p>{tab.title}</p>
         </div>
       {/if}
     {/each}
-    <div id="tab_padding" class="right-shadow"></div>
+    <div id="tab_padding" class="tab-shadow"></div>
   </div>
   <div id="slot_container">
     <slot />
@@ -131,13 +132,15 @@
     align-items: center;
     div {
       background: var(--foreground);
+      mask-repeat: no-repeat;
+      mask-size: cover;
       margin: 8px;
       width: 32px;
       height: 32px;
     }
   }
 
-  .right-shadow {
+  .tab-shadow {
     background: linear-gradient(270deg, var(--shadow), 1%, var(--background));
   }
 
@@ -180,6 +183,19 @@
       border-right: 1px solid var(--foreground);
     } */
   /* } */
+  @media screen and (max-width: 1000px) {
+    .tab {
+      p {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1520px) and (min-width: 1000px) {
+    .tab {
+      flex: 1;
+    }
+  }
 
   @media screen and (max-width: 1520px) {
     #main {
@@ -190,10 +206,7 @@
       width: 100dvw;
       flex-flow: row;
     }
-    .tab {
-      flex: 1;
-    }
-    .right-shadow {
+    .tab-shadow {
       background: linear-gradient(0deg, var(--shadow), 1%, var(--background));
     }
     #selected {
