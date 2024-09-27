@@ -89,30 +89,12 @@
       flex-flow: column;
     }
   }
-
-
-
-
-
-
-  @media screen and (min-width: 1520px) {
-    #contents_list {
-      display: flex;
-      border-right: 1px solid var(--foreground);
-    }
-  }
-
-  @media screen and (max-width: 1520px) {
-    #contents_list {
-      flex-direction: row;
-      border-bottom: 1px solid var(--foreground);
-    }
-    #main {
-      flex-direction: column;
-    }
-    #tab {
-      width: 48px;
-      flex-direction: column;
+  @media (max-width: 1520px) {
+    #profile {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
     }
   }
 </style>

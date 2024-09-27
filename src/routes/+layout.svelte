@@ -3,7 +3,12 @@
   import { onMount } from "svelte"
   import sun from "$lib/assets/sun.svg"
   import moon from "$lib/assets/moon.svg"
-    import { page } from "$app/stores";
+  import face from "$lib/assets/face2.jpg"
+  import bag from "$lib/assets/bag.svg"
+  import hobby from "$lib/assets/hobby.svg"
+  import prof from "$lib/assets/prof.svg"
+  import { page } from "$app/stores";
+
 
   const isDarkMode = writable(false)
 
@@ -27,9 +32,9 @@
   }
 
   const tabs = [
-    {id: "/", title: "プロフィール"},
-    {id: "/career", title: "経歴"},
-    {id: "/hobby", title: "趣味"}
+    {id: "/", title: "プロフィール", icon: prof},
+    {id: "/career", title: "経歴", icon: bag},
+    {id: "/hobby", title: "趣味", icon: hobby}
   ]
 
 </script>
@@ -45,11 +50,13 @@
   <div id="tab_container">
     {#each tabs as tab}
       {#if tab.id === $page.url.pathname}
-        <div id="selected">
+        <div id="selected" class="tab">
+          <div style="mask-image: url({tab.icon})"></div>
           <p>{tab.title}</p>
         </div>
       {:else}
-        <div class="right-shadow">
+        <div class="right-shadow tab">
+          <div style="mask-image: url({tab.icon})"></div>
           <a href={tab.id}><p>{tab.title}</p></a>
         </div>
       {/if}
@@ -97,7 +104,7 @@
     --background: light-dark(#faf6f3, #302e2a);
     --foreground: light-dark(#305aaf, #fff);
     --foreground2: light-dark(#c0107a,#ffa3da);
-    --shadow: light-dark(#d6d3d1,#161614);
+    --shadow: light-dark(#999795,#161614);
     color-scheme: light dark;
   }
 
@@ -108,15 +115,26 @@
     right: 0;
     height: 48px;
     div {
-      margin: 12px;
+      margin: 8px;
       background-color: var(--foreground);
-      height: 40px;
-      width: 40px;
+      height: 32px;
+      width: 32px;
     }
   }
 
   #tab_padding {
     flex: 1;
+  }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    div {
+      background: var(--foreground);
+      margin: 8px;
+      width: 32px;
+      height: 32px;
+    }
   }
 
   .right-shadow {
@@ -143,6 +161,7 @@
 
   #selected {
     border-bottom: 2px solid var(--foreground2);
+    box-sizing: border-box;
     background: var(--background);
   }
 
@@ -154,4 +173,45 @@
     z-index: -1;
     flex-grow: 1;
   }
+
+  /* @media screen and (min-width: 1520px) { */
+    /* #contents_list {
+      display: flex;
+      border-right: 1px solid var(--foreground);
+    } */
+  /* } */
+
+  @media screen and (max-width: 1520px) {
+    #main {
+      flex-flow: column;
+    }
+    #tab_container {
+      height: 48px;
+      width: 100dvw;
+      flex-flow: row;
+    }
+    .tab {
+      flex: 1;
+    }
+    .right-shadow {
+      background: linear-gradient(0deg, var(--shadow), 1%, var(--background));
+    }
+    #selected {
+      border-right: none;
+      box-sizing: border-box;
+      background: var(--background);
+    }
+    /* #contents_list {
+      flex-direction: row;
+      border-bottom: 1px solid var(--foreground);
+    }
+    #main {
+      flex-direction: column;
+    }
+    #tab {
+      width: 48px;
+      flex-direction: column;
+    } */
+  }
+
 </style>
