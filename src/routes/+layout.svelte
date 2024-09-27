@@ -43,15 +43,18 @@
 </div>
 <div id="main">
   <div id="tab_container">
-    <div id="tabs">
-      {#each tabs as tab}
-        {#if tab.id === $page.url.pathname}
-          <p id="selected">{tab.title}</p>
-        {:else}
+    {#each tabs as tab}
+      {#if tab.id === $page.url.pathname}
+        <div id="selected">
+          <p>{tab.title}</p>
+        </div>
+      {:else}
+        <div class="right-shadow">
           <a href={tab.id}><p>{tab.title}</p></a>
-        {/if}
-      {/each}
-    </div>
+        </div>
+      {/if}
+    {/each}
+    <div id="tab_padding" class="right-shadow"></div>
   </div>
   <div id="slot_container">
     <slot />
@@ -94,6 +97,7 @@
     --background: light-dark(#faf6f3, #302e2a);
     --foreground: light-dark(#305aaf, #fff);
     --foreground2: light-dark(#c0107a,#ffa3da);
+    --shadow: light-dark(#d6d3d1,#161614);
     color-scheme: light dark;
   }
 
@@ -111,7 +115,18 @@
     }
   }
 
-  #tabs {
+  #tab_padding {
+    flex: 1;
+  }
+
+  .right-shadow {
+    background: linear-gradient(270deg, var(--shadow), 1%, var(--background));
+  }
+
+  #tab_container {
+    height: 100dvh;
+    display: flex;
+    flex-flow: column;
     margin-right: 24px;
     p {
       margin-top: 0;
@@ -127,12 +142,8 @@
   }
 
   #selected {
-    /* background-color: var(--foreground); */
-    /* color: var(--background) */
-    border-radius: 10px;
-    background: #302e2a;
-    box-shadow: inset 3px 3px 5px #1b1a18,
-            inset -3px -3px 5px #45423c;
+    border-bottom: 2px solid var(--foreground2);
+    background: var(--background);
   }
 
   #main {

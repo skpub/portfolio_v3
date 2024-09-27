@@ -41,9 +41,6 @@
 
 <style>
   #profile {
-    position: absolute;
-    left: 0;
-    width: 100dvw;
     display: flex;
     justify-content: center;
     align-items: center;
