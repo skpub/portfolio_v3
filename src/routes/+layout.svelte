@@ -23,11 +23,11 @@
     }
     isDarkMode.subscribe(v => {
       if (v) {
-        document.documentElement.classList.remove("dark")
-        document.documentElement.classList.add("light")
-      } else {
         document.documentElement.classList.remove("light")
         document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+        document.documentElement.classList.add("light")
       }
     })
   })
@@ -102,23 +102,19 @@
     --gothic1: "Zen Maru Gothic";
     --gothic2: "BIZ UDGothic";
     --letter1: "Zen Kurenaido";
-    /* --background: light-dark(#faf6f3, #302e2a);
-    --foreground: light-dark(#305aaf, #fff);
-    --foreground2: light-dark(#c0107a,#ffa3da);
-    --shadow: light-dark(#999795,#161614); */
     color-scheme: light dark;
   }
   :root.dark {
     --background:   #302e2a;
     --foreground:   #fff;
     --foreground2:  #ffa3da;
-    --shadow:       #161614;
+    --shadow:       #2b2926;
   }
   :root.light {
     --background:   #faf6f3;
     --foreground:   #305aaf;
     --foreground2:  #c0107a;
-    --shadow:       #999795;
+    --shadow:       #dddbd9;
   }
 
   #header {
@@ -133,18 +129,24 @@
       height: 32px;
       width: 32px;
     }
+    div:hover {
+      background: var(--foreground2);
+    }
   }
 
   #tab_padding {
     flex: 1;
   }
 
+  .tab:not(#selected):hover {
+    color: var(--foreground2);
+    div {
+      background: var(--foreground2);
+    }
+  }
   .tab {
     display: flex;
     align-items: center;
-    :not(#selected):hover {
-      backdrop-filter: brightness(80%);
-    }
     div {
       background: var(--foreground);
       mask-repeat: no-repeat;
@@ -156,7 +158,7 @@
   }
 
   .tab-shadow {
-    background: linear-gradient(270deg, var(--shadow), 1%, var(--background));
+    background: linear-gradient(270deg, var(--shadow), color-mix(in srgb, var(--background) 95%, black 5%) 24px);
   }
 
   #tab_container {
@@ -192,14 +194,8 @@
     flex-grow: 1;
   }
 
-  /* @media screen and (min-width: 1520px) { */
-    /* #contents_list {
-      display: flex;
-      border-right: 1px solid var(--foreground);
-    } */
-  /* } */
   @media screen and (max-width: 1000px) {
-    .tab {
+    .tab:not(#selected) {
       p {
         display: none;
       }
@@ -209,10 +205,15 @@
   @media screen and (max-width: 1520px) and (min-width: 1000px) {
     .tab {
       flex: 1;
+      max-width: 200px;
     }
   }
 
   @media screen and (max-width: 1520px) {
+    #slot_container {
+      margin-left: 24px;
+      margin-right: 24px;
+    }
     #main {
       flex-flow: column;
     }
@@ -222,24 +223,20 @@
       flex-flow: row;
     }
     .tab-shadow {
-      background: linear-gradient(0deg, var(--shadow), 1%, var(--background));
+      background: linear-gradient(0deg, var(--shadow), color-mix(in srgb, var(--background) 90%, black 10%) 24px);
     }
-    #selected {
+    #selected{
       border-right: none;
       box-sizing: border-box;
       background: var(--background);
     }
-    /* #contents_list {
-      flex-direction: row;
-      border-bottom: 1px solid var(--foreground);
+  }
+  @media screen and (min-width: 1520px) {
+    .tab {
+      p {
+        margin-right: 10px;
+      }
     }
-    #main {
-      flex-direction: column;
-    }
-    #tab {
-      width: 48px;
-      flex-direction: column;
-    } */
   }
 
 </style>
