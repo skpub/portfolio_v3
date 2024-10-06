@@ -44,7 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100dvh;
+    min-height: calc(100dvh - 48px);
     img {
       border-radius: 5%;
       width: 200px;
