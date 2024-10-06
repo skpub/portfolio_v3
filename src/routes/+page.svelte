@@ -91,7 +91,6 @@
   }
   @media (max-width: 1520px) {
     #profile {
-      position: absolute;
       top: 0;
       right: 0;
       left: 0;

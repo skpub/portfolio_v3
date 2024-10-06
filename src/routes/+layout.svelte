@@ -7,8 +7,9 @@
   import bag from "$lib/assets/bag.svg"
   import hobby from "$lib/assets/hobby.svg"
   import prof from "$lib/assets/prof.svg"
+  import build from "$lib/assets/build.svg"
   import { page } from "$app/stores";
-    import { goto } from "$app/navigation";
+  import { goto } from "$app/navigation";
 
 
   let isDarkMode = writable(false)
@@ -35,7 +36,8 @@
   const tabs = [
     {id: "/", title: "プロフィール", icon: prof},
     {id: "/career", title: "経歴", icon: bag},
-    {id: "/hobby", title: "趣味", icon: hobby}
+    {id: "/hobby", title: "趣味", icon: hobby},
+    {id: "/works", title: "成果物", icon: build}
   ]
 
 </script>
@@ -70,19 +72,21 @@
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400;700&family=Zen+Kurenaido&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400&family=Zen+Kurenaido&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400&family=Noto+Sans+JP:wght@100..900&display=swap');
 
   :global(body) {
     background-color: var(--background);
     * {
-      font-family: var(--gothic1);
+      font-family: var(--gothic_noto);
     }
     margin: 0;
   }
-  :global(h1) {
-    font-family: var(--gothic2);
+  :global(h1, h2, h3) {
+    font-family: var(--letter1);
   }
   :global(p) {
     font-size: 18px;
@@ -101,21 +105,26 @@
     color: var(--foreground);
     --gothic1: "Zen Maru Gothic";
     --gothic2: "BIZ UDGothic";
+    --gothic_noto: "Noto Sans JP";
     --letter1: "Zen Kurenaido";
     color-scheme: light dark;
   }
   :root.dark {
     --background:   hsl(40, 7%, 18%);
     --background_s: hsl(40, 7%, 16%);
+    --background_w: hsl(40, 7%, 16%);
     --foreground:   hsl(0, 0%, 100%);
     --foreground2:  hsl(324, 100%, 82%);
+    --foreground3:  hsl(188, 67%, 75%);
     --shadow:       hsl(36, 6%, 16%);
   }
   :root.light {
     --background:   hsl(26, 41%, 97%);
     --background_s: hsl(26, 41%, 99%);
-    --foreground:   hsl(220, 57%, 44%);
+    --background_w: hsl(26, 41%, 96%);
+    --foreground:   hsl(23, 16%, 22%);
     --foreground2:  hsl(324, 85%, 41%);
+    --foreground3:  hsl(208, 63%, 37%);
     --shadow:       hsl(30, 6%, 86%);
   }
 
@@ -123,6 +132,7 @@
     display: flex;
     justify-content: end;
     position: absolute;
+    top: 0;
     right: 0;
     height: 48px;
     div {
@@ -150,12 +160,13 @@
     display: flex;
     align-items: center;
     div {
-      background: var(--foreground);
+      /* background: var(--foreground); */
+      background: gray;
       mask-repeat: no-repeat;
       mask-size: cover;
       margin: 8px;
-      width: 32px;
-      height: 32px;
+      width: 20px;
+      height: 20px;
     }
   }
 
@@ -174,12 +185,6 @@
       margin-bottom: 0;
       padding: 12px;
     }
-    a {
-      color: var(--foreground)
-    }
-    a:hover {
-      color: var(--foreground2)
-    }
   }
 
   #selected {
@@ -193,7 +198,6 @@
   }
 
   #slot_container {
-    z-index: -1;
     flex-grow: 1;
   }
 

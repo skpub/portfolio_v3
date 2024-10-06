@@ -69,7 +69,7 @@
         </p>
       </div>
     </div>
-    <h2 class="title">新潟大学理学部 卒業</h2>
+    <h2 class="title">2024/03 新潟大学理学部 卒業</h2>
   </div>
 
   <div>
@@ -114,7 +114,7 @@
     margin-left: 12px;
   }
   .title {
-    color: var(--foreground2);
+    color: var(--foreground3);
     margin: 0;
   }
 </style>
