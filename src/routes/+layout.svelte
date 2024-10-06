@@ -105,16 +105,18 @@
     color-scheme: light dark;
   }
   :root.dark {
-    --background:   #302e2a;
-    --foreground:   #fff;
-    --foreground2:  #ffa3da;
-    --shadow:       #2b2926;
+    --background:   hsl(40, 7%, 18%);
+    --background_s: hsl(40, 7%, 16%);
+    --foreground:   hsl(0, 0%, 100%);
+    --foreground2:  hsl(324, 100%, 82%);
+    --shadow:       hsl(36, 6%, 16%);
   }
   :root.light {
-    --background:   #faf6f3;
-    --foreground:   #305aaf;
-    --foreground2:  #c0107a;
-    --shadow:       #dddbd9;
+    --background:   hsl(26, 41%, 97%);
+    --background_s: hsl(26, 41%, 99%);
+    --foreground:   hsl(220, 57%, 44%);
+    --foreground2:  hsl(324, 85%, 41%);
+    --shadow:       hsl(30, 6%, 86%);
   }
 
   #header {
@@ -163,6 +165,7 @@
 
   #tab_container {
     height: 100dvh;
+    min-width: max-content;
     display: flex;
     flex-flow: column;
     margin-right: 24px;
@@ -232,6 +235,9 @@
     }
   }
   @media screen and (min-width: 1520px) {
+    #slot_container {
+      margin-right: 24px;
+    }
     .tab {
       p {
         margin-right: 10px;
