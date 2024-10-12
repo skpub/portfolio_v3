@@ -110,7 +110,7 @@
     color-scheme: light dark;
   }
   :root.dark {
-    --background:   hsl(40, 7%, 18%);
+    --background:   hsl(40, 7%, 19%);
     --background_s: hsl(40, 7%, 16%);
     --background_w: hsl(40, 7%, 16%);
     --foreground:   hsl(0, 0%, 100%);
@@ -119,7 +119,7 @@
     --shadow:       hsl(36, 6%, 16%);
   }
   :root.light {
-    --background:   hsl(26, 41%, 97%);
+    --background:   hsl(26, 41%, 95%);
     --background_s: hsl(26, 41%, 99%);
     --background_w: hsl(26, 41%, 96%);
     --foreground:   hsl(23, 16%, 22%);

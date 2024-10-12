@@ -73,7 +73,7 @@
   </div>
 
   <div>
-    <h2 class="title">2022/04 新潟大学大学院自然科学研究科数理物質科学専攻数理科学コース 入学</h2>
+    <h2 class="title">2024/04 新潟大学大学院自然科学研究科数理物質科学専攻数理科学コース 入学</h2>
     <div class="box">
       <div class="vertical_line"></div>
       <div class="content">
