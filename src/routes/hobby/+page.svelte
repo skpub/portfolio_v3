@@ -55,6 +55,28 @@
       {/if}
     {/each}
   </div>
+
+  <h3>音楽の趣味</h3>
+  <div class="margin24">
+    <p>{`YMO, Queen, シティポップ大好き人間。
+      最近の若者らしく?サブスクのストリーミングサービスで色々聴いてみて好きならリピートするという感じである。
+      とりあえず好きなものを雑に列挙していこう。`}</p>
+    <p>{`ちょっと古いやつ: 俺ら東京さ行ぐだ, 東風, energy flow, 戦場のメリークリスマス, PERSPECTIVE, THE END OF ASIA, 君に胸キュン。,
+      riot in Lagos, 異邦人, メトロポリタン美術館, フライディ・チャイナタウン, アクアマリンのままでいて, Dazzling(CASIOPEA), THE SOUNDGRAPHY,
+      君がいるだけで, ラブ・ストーリーは突然に, PLASTIC LOVE, くすりをたくさん, かもめが翔んだ日,
+      クリスマスキャロルの頃には, 夏のクラクション, イージュー☆ライダー(土岐麻子) 初恋(村下孝蔵), BOMBER, Good Old-Fashioned Lover Boy, Killer Queen,
+      Another One Bites the Dust, Somebody To love, Don't Stop Me Now, Bohemian Rhapsody,
+      We Will Rock You, We are the Champions, Radio Ga Ga, 炎のさだめ, 宝島`}</p>
+
+    <p>{`最近?のやつ: はいよろこんで, Dumb Ways to Die, 電脳眠眠猫, Deep Down - Never Dull's In My Mind Edit,
+      クーネル・エンゲイザー, 暮らしガスメーター, おくすり飲んで寝よう, 下がるガール, 忘れられないの, 目が明く藍色,
+      スローモーション, ロックンロールは鳴り止まない, I'am - 報道ステーション テーマ曲, 可愛くてごめん,
+      明日はきっとみんな友達(Falcom Sound Team jdk), 生きてる生きてく, 君はマザーファッカー, バラライカ,
+      PUNCH☆MIND☆HAPPINESS, ミッドナイトシアター, アイガッテ☆ランテ, ワタシ*ドリ, ココロのちず, 全力少年,
+      セーラ☆ムン太郎, 持たざる者, 8ビットボーイ, TOKYO通信～Urbs Communication～, Gangnam Style,
+      時の回廊, 風の憧憬, 夢想歌, Rude Buster(Toby Fox), 僕らの合言葉, SUSHI食べたい, コネクト
+    `}</p>
+  </div>
 </div>
 
 <div class="box">
