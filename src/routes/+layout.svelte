@@ -8,6 +8,7 @@
   import prof from "$lib/assets/prof.svg"
   import build from "$lib/assets/build.svg"
   import works from "$lib/assets/works.svg"
+  import server from "$lib/assets/server.svg"
   import { page } from "$app/stores"
   import { goto } from "$app/navigation"
 
@@ -39,15 +40,16 @@
     {id: "/hobby", title: "趣味", icon: hobby},
     {id: "/works", title: "成果物", icon: works},
     {id: "/skills", title: "できること", icon: build},
+    {id: "/server", title: "自宅サーバ", icon: server},
   ]
 
 </script>
 
 <div id="header" on:click={toggleMode}>
   {#if $isDarkMode}
-    <div style="mask-image: url({moon});"></div>
-  {:else}
     <div style="mask-image: url({sun});"></div>
+  {:else}
+    <div style="mask-image: url({moon});" ></div>
   {/if}
 </div>
 <div id="main">
