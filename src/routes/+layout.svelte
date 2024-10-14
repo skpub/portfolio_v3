@@ -47,9 +47,9 @@
 
 <div id="header" on:click={toggleMode}>
   {#if $isDarkMode}
-    <div style="mask-image: url({sun});"></div>
+    <div style='mask-image: url("{sun}");'></div>
   {:else}
-    <div style="mask-image: url({moon});" ></div>
+    <div style='mask-image: url("{moon}");' ></div>
   {/if}
 </div>
 <div id="main">
@@ -57,12 +57,12 @@
     {#each tabs as tab}
       {#if tab.id === $page.url.pathname}
         <div id="selected" class="tab">
-          <div style="mask-image: url({tab.icon})"></div>
+          <div style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
         </div>
       {:else}
         <div class="tab-shadow tab" on:click={goto(tab.id)}>
-          <div style="mask-image: url({tab.icon})"></div>
+          <div style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
         </div>
       {/if}
