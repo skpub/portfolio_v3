@@ -23,7 +23,7 @@
 
 <h1>趣味</h1>
 
-<div class="box">
+<div class="box_container">
   <h2>作曲</h2>
   <h3>ちょっとしたフレーズたち</h3>
 
@@ -79,7 +79,7 @@
   </div>
 </div>
 
-<div class="box">
+<div class="box_container">
   <h2>猫</h2>
   <div class="margin24">
     <p>{`基本的に全ての猫が好きだ。その中でも特に何が好きかと聞かれれば、
@@ -88,7 +88,7 @@
   </div>
 </div>
 
-<div class="box">
+<div class="box_container">
   <h2>紅茶</h2>
   <div class="margin24">
   <p>{`特別どれでないとダメというのはなく、気分や状況(合わせる食事)次第で色々飲む。ただ商品は選ぶ。
@@ -131,7 +131,7 @@
   </div>
 </div>
 
-<div class="box">
+<div class="box_container">
   <h2>万年筆</h2>
   <div class="margin24">
     <p>誤解を恐れずに鉛筆やシャーペンとの明確な違いを(極端に)述べておくと、<span class="foreground3">「筆圧が要らないので疲れない」</span>というのがデカい</p>
@@ -143,12 +143,6 @@
 </div>
 
 <style>
-  .box {
-    margin: 24px;
-    padding: 24px;
-    border-radius: 18px;
-    background-color: var(--background_s);
-  }
   #player {
     backdrop-filter: blur(2px);
     position: fixed;

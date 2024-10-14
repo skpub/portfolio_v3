@@ -1,7 +1,7 @@
 <h1>履歴</h1>
 
 <div id="sc_com_container">
-  <div>
+  <div class="box_container">
     <h2 class="title">2017/04 一関工業高等専門学校 入学 (未来創造工学科改組後一期生)</h2>
     <div class="box">
       <div class="vertical_line"></div>
@@ -47,7 +47,7 @@
     <h2 class="title">2022/03 一関工業高等専門学校 卒業</h2>
   </div>
 
-  <div>
+  <div class="box_container">
     <h2 class="title">2022/04 新潟大学理学部理学科数学プログラム 入学 (世間一般で云う理学部数学科)</h2>
     <div class="box">
       <div class="vertical_line"></div>
@@ -72,7 +72,7 @@
     <h2 class="title">2024/03 新潟大学理学部 卒業</h2>
   </div>
 
-  <div>
+  <div class="box_container">
     <h2 class="title">2024/04 新潟大学大学院自然科学研究科数理物質科学専攻数理科学コース 入学</h2>
     <div class="box">
       <div class="vertical_line"></div>
@@ -95,14 +95,6 @@
 </div>
 
 <style>
-  #sc_com_container > div {
-    margin: 24px;
-    padding: 24px;
-    border-radius: 12px;
-    margin-bottom: 24px;
-    background: var(--background_s);
-  }
-
   .box {
     display: flex;
   }

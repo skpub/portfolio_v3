@@ -89,7 +89,7 @@
   :global(h1, h2, h3) {
     font-family: var(--letter1);
   }
-  :global(p) {
+  :global(p, span) {
     font-size: 18px;
   }
   :global(.margin24) {
@@ -106,6 +106,31 @@
     color: var(--foreground3);
     font-weight: bold;
   }
+  :global(.table) {
+    display: table;
+  }
+
+  :global(.table-row) {
+    display: table-row;
+    width: max-content;
+  }
+  :global(.table-cell:nth-child(1)) {
+    padding-right: 24px;
+  }
+
+  :global(.table-cell) {
+    display: table-cell;
+  }
+  :global(.box_container) {
+    margin: 24px;
+    padding: 24px;
+    border-radius: 18px;
+    background-color: var(--background_s);
+  }
+  :global(.box_container > h2) {
+    margin-top: 0;
+  }
+
   :root {
     color: var(--foreground);
     --gothic1: "Zen Maru Gothic";
@@ -134,6 +159,7 @@
   }
 
   #header {
+    z-index: 1;
     display: flex;
     justify-content: end;
     position: absolute;
@@ -180,6 +206,9 @@
   }
 
   #tab_container {
+    position: sticky;
+    top: 0;
+    left: 0;
     height: 100dvh;
     min-width: max-content;
     display: flex;
@@ -217,7 +246,7 @@
   @media screen and (max-width: 1520px) and (min-width: 1000px) {
     .tab {
       flex: 1;
-      max-width: 200px;
+      max-width: 160px;
     }
   }
 
@@ -233,6 +262,9 @@
       height: 48px;
       width: 100dvw;
       flex-flow: row;
+      p {
+        font-size: 16px;
+      }
     }
     .tab-shadow {
       background: linear-gradient(0deg, var(--shadow), color-mix(in srgb, var(--background) 90%, black 10%) 24px);

@@ -54,20 +54,6 @@
       font-family: var(--letter1);
     }
   }
-  .table {
-    display: table;
-  }
-
-  .table-row {
-    display: table-row;
-  }
-  .table-cell:nth-child(1) {
-    padding-right: 24px;
-  }
-
-  .table-cell {
-    display: table-cell;
-  }
 
   #face {
     margin-left: 24px;
