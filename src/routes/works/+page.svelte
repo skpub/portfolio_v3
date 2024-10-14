@@ -7,7 +7,7 @@
   import gl_kadai from "$lib/assets/TONGKING2.webp"
   import meigens from "$lib/assets/meigens.webp"
   const products = [
-    {name: "DirBackup", img: dirbackup ,description: "差分バックアップしてくれる", link: "DIrBackup", lang: "Java"},
+    {name: "DIrBackup", img: dirbackup ,description: "差分バックアップしてくれる", link: "DIrBackup", lang: "Java"},
     {name: "CronParser", img: cronparser, description: "Crontabの設定を解釈して次の実行時刻を教えてくれる", link: "CronParser", lang: "Java"},
     {name: "gl_kadai", img: gl_kadai, description: "3DオブジェクトファイルをOpenGLで描画するやつ", link: "gl_kadai", lang: "C"},
     {name: "meigens-api", img: meigens, description: "名言管理API", link: "meigens-api", lang: "Go, SQL"},

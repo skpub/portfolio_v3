@@ -96,7 +96,8 @@
 
 <style>
   #sc_com_container > div {
-    padding: 12px;
+    margin: 24px;
+    padding: 24px;
     border-radius: 12px;
     margin-bottom: 24px;
     background: var(--background_s);
@@ -106,7 +107,7 @@
     display: flex;
   }
   .vertical_line {
-    margin-left: 20px;
+    margin-left: 32px;
     margin-right: 8px;
     border-right: 1px solid var(--foreground);
   }

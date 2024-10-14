@@ -3,13 +3,13 @@
   import { onMount } from "svelte"
   import sun from "$lib/assets/sun.svg"
   import moon from "$lib/assets/moon.svg"
-  import face from "$lib/assets/face2.jpg"
   import bag from "$lib/assets/bag.svg"
   import hobby from "$lib/assets/hobby.svg"
   import prof from "$lib/assets/prof.svg"
   import build from "$lib/assets/build.svg"
-  import { page } from "$app/stores";
-  import { goto } from "$app/navigation";
+  import works from "$lib/assets/works.svg"
+  import { page } from "$app/stores"
+  import { goto } from "$app/navigation"
 
 
   let isDarkMode = writable(false)
@@ -37,7 +37,8 @@
     {id: "/", title: "プロフィール", icon: prof},
     {id: "/career", title: "経歴", icon: bag},
     {id: "/hobby", title: "趣味", icon: hobby},
-    {id: "/works", title: "成果物", icon: build}
+    {id: "/works", title: "成果物", icon: works},
+    {id: "/skills", title: "できること", icon: build},
   ]
 
 </script>
@@ -100,6 +101,10 @@
   :global(a) {
     text-decoration: none;
     color: var(--foreground2);
+  }
+  :global(.foreground3) {
+    color: var(--foreground3);
+    font-weight: bold;
   }
   :root {
     color: var(--foreground);
