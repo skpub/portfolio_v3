@@ -1,11 +1,13 @@
 <script lang="ts">
   let phrase: { [title: string]: string} = {}
-  phrase["東雲テーマパーク"] = "https://youtube.com/embed/u4hQbN3U0Hc"
-  phrase["迷い"] = "https://youtube.com/embed/k4xrZWkzIMg"
-  phrase["路地裏"] = "https://youtube.com/embed/KjnWLtsaxyM"
-  phrase["INDIGO"] = "https://youtube.com/embed/ymXU4PpIa8g"
-  phrase["いけ好かないあなたのために"] = "https://youtube.com/embed/kFOXsmXD_hA"
-  phrase["好きな和音(エレキ蒙々の一部分)"] = "https://youtube.com/embed/21rykNJ8nz0"
+  phrase["インモラル大学校歌"] = "https://youtube.com/embed/OEq7Ttl6DIY?feature=share"
+  phrase["東雲テーマパーク"] = "https://youtube.com/embed/u4hQbN3U0Hc?feature=share"
+  phrase["迷い"] = "https://youtube.com/embed/k4xrZWkzIMg?feature=share"
+  phrase["路地裏"] = "https://youtube.com/embed/0A2QDUX75uU?feature=share"
+  phrase["INDIGO"] = "https://youtube.com/embed/ymXU4PpIa8g?feature=share"
+  phrase["いけ好かないあなたのために"] = "https://youtube.com/embed/kFOXsmXD_hA?feature=share"
+  phrase["好きな和音(エレキ蒙々の一部分)"] = "https://youtube.com/embed/21rykNJ8nz0?feature=share"
+  phrase["焦燥"] = "https://youtube.com/embed/ZS3uZBwqqVk?feature=share"
 
   let selected = "NULL"
 
