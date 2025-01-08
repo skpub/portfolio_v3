@@ -45,7 +45,7 @@
 
 </script>
 
-<div id="header" on:click={toggleMode}>
+<div id="header" class="clickable" on:click={toggleMode}>
   {#if $isDarkMode}
     <div style='mask-image: url("{sun}");'></div>
   {:else}
@@ -61,7 +61,7 @@
           <p>{tab.title}</p>
         </div>
       {:else}
-        <div class="tab-shadow tab" on:click={goto(tab.id)}>
+        <div class="tab-shadow tab clickable" on:click={goto(tab.id)}>
           <div style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
         </div>
@@ -87,6 +87,9 @@
       font-family: var(--gothic_noto);
     }
     margin: 0;
+  }
+  :global(.clickable) {
+    cursor: pointer;
   }
   :global(h1, h2, h3) {
     font-family: var(--letter1);

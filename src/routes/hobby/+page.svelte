@@ -28,7 +28,7 @@
   <h3>ちょっとしたフレーズたち</h3>
 
   {#if selected !== "NULL"}
-    <div id="player" on:click={() => select("NULL", true)}>
+    <div id="player" class="clickable" on:click={() => select("NULL", true)}>
       <iframe src={short ? phrase[selected]: music[selected]} title={selected}
         class={short ? "short": "yoko"}
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -40,7 +40,7 @@
       {#if selected === title}
         <p id="selected_phrase">▶ {title}</p>
       {:else}
-        <p on:click={() => select(title, true)}>{title}</p>
+        <p class="clickable" on:click={() => select(title, true)}>{title}</p>
       {/if}
     {/each}
   </div>
@@ -51,7 +51,7 @@
       {#if selected === title}
         <p id="selected_phrase">▶ {title}</p>
       {:else}
-        <p on:click={() => select(title, false)}>{title}</p>
+        <p class="clickable" on:click={() => select(title, false)}>{title}</p>
       {/if}
     {/each}
   </div>
