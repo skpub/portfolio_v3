@@ -147,7 +147,7 @@
   :root.dark {
     --background:   hsl(40, 7%, 19%);
     --background_s: hsl(40, 7%, 16%);
-    --background_w: hsl(40, 7%, 16%);
+    --background_w: hsl(40, 7%, 13%);
     --foreground:   hsl(0, 0%, 100%);
     --foreground2:  hsl(324, 100%, 82%);
     --foreground3:  hsl(188, 67%, 75%);
@@ -156,7 +156,7 @@
   :root.light {
     --background:   hsl(26, 41%, 95%);
     --background_s: hsl(26, 41%, 99%);
-    --background_w: hsl(26, 41%, 96%);
+    --background_w: hsl(26, 41%, 97%);
     --foreground:   hsl(23, 16%, 22%);
     --foreground2:  hsl(324, 85%, 41%);
     --foreground3:  hsl(208, 63%, 37%);

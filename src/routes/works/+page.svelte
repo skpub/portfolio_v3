@@ -6,11 +6,13 @@
   import cronparser from "$lib/assets/cronparser.webp"
   import gl_kadai from "$lib/assets/TONGKING2.webp"
   import meigens from "$lib/assets/meigens.webp"
+  import kurumi from "$lib/assets/kurumi-proxy.webp"
   const products = [
     {name: "DIrBackup", img: dirbackup ,description: "差分バックアップしてくれる", link: "DIrBackup", lang: "Java"},
     {name: "CronParser", img: cronparser, description: "Crontabの設定を解釈して次の実行時刻を教えてくれる", link: "CronParser", lang: "Java"},
     {name: "gl_kadai", img: gl_kadai, description: "3DオブジェクトファイルをOpenGLで描画するやつ", link: "gl_kadai", lang: "C"},
     {name: "meigens-api", img: meigens, description: "名言管理API", link: "meigens-api", lang: "Go, SQL"},
+    {name: "kurumi-proxy", img: kurumi, description: "SSHをHTTPで偽装してくれる", link: "kurumi-proxy", lang: "Rust"},
     {name: "ポートフォリオv1", img: pv1, description: "初代ポートフォリオ", link: "portfolio_sato_kaito ", lang: "TS(React)"},
     {name: "ポートフォリオv2", img: pv2, description: "二代目ポートフォリオ", link: "portfolio_v2", lang: "TS(React)"},
     {name: "ポートフォリオv3", img: pv3, description: "このページ", link: "portfolio_v3", lang: "TS(Svelte)"},
@@ -21,12 +23,11 @@
 
 <div id="works">
   {#each products as product}
-    <div class="work">
+    <div class="work clickable" on:click={() => window.open("https://github.com/skpub/" + product.link, "_blank")}>
       <img src={product.img} alt="">
       <h2>{product.name}</h2>
       <p class="deskription">{product.description}</p>
       <p>{product.lang}</p>
-      <a href={"https://github.com/skpub/" + product.link}>GitHub</a>
     </div>
   {/each}
 </div>
@@ -53,6 +54,11 @@
         flex: 1;
       }
     }
+  }
+  .work:hover {
+    box-shadow: -2px -2px 0px var(--foreground2);
+    background-color: var(--background_w) !important;
+    transform: translate(2px, 2px);
   }
   @media (max-width: 790px) {
     #works {
