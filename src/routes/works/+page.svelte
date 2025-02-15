@@ -14,7 +14,7 @@
     {name: "meigens-api", img: meigens, description: "名言管理API", link: "meigens-api", lang: "Go, SQL"},
     {name: "kurumi-proxy", img: kurumi, description: "SSHをHTTPで偽装してくれる", link: "kurumi-proxy", lang: "Rust"},
     {name: "ポートフォリオv1", img: pv1, description: "初代ポートフォリオ", link: "portfolio_sato_kaito ", lang: "TS(React)"},
-    {name: "ポートフォリオv2", img: pv2, description: "二代目ポートフォリオ", link: "portfolio_v2", lang: "TS(React)"},
+    {name: "ポートフォリオv2", img: pv2, description: "二代目ポートフォリオ", link: "portfolio2", lang: "TS(React)"},
     {name: "ポートフォリオv3", img: pv3, description: "このページ", link: "portfolio_v3", lang: "TS(Svelte)"},
   ]
 </script>
