@@ -1,5 +1,7 @@
 <script lang="ts">
   import face from "$lib/assets/face.webp"
+  const today = new Date()
+  const age = today.getFullYear() - 2002 - (today.getMonth() <= 2 && today.getDate() < 11 ? 1 : 0)
 </script>
 
 <div id="profile">
@@ -7,6 +9,10 @@
   <div id="bio" class="margin24">
     <h1 id="name">佐藤 海音 | Sato Kaito</h1>
     <div class="table">
+      <div class="table-row">
+        <div class="table-cell">生年月日</div>
+        <div class="table-cell">西暦2002年2月11日 ({age}歳)</div>
+      </div>
       <div class="table-row">
         <div class="table-cell">所属</div>
         <div class="table-cell">新潟大学大学院自然科学研究科数理物質科学専攻 M1</div>
