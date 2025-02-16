@@ -26,7 +26,7 @@
 <style>
   #gallery {
     img {
-      max-width: 500px;
+      max-width: min(400px, 100%);
     }
   }
 </style>

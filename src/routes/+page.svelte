@@ -1,5 +1,5 @@
 <script lang="ts">
-  import face from "$lib/assets/face2.jpg"
+  import face from "$lib/assets/face.webp"
 </script>
 
 <div id="profile">

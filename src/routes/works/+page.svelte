@@ -7,15 +7,102 @@
   import gl_kadai from "$lib/assets/TONGKING2.webp"
   import meigens from "$lib/assets/meigens.webp"
   import kurumi from "$lib/assets/kurumi-proxy.webp"
+  import imu from "$lib/assets/imu.webp"
   const products = [
-    {name: "DIrBackup", img: dirbackup ,description: "差分バックアップしてくれる", link: "DIrBackup", lang: "Java"},
-    {name: "CronParser", img: cronparser, description: "Crontabの設定を解釈して次の実行時刻を教えてくれる", link: "CronParser", lang: "Java"},
-    {name: "gl_kadai", img: gl_kadai, description: "3DオブジェクトファイルをOpenGLで描画するやつ", link: "gl_kadai", lang: "C"},
-    {name: "meigens-api", img: meigens, description: "名言管理API", link: "meigens-api", lang: "Go, SQL"},
-    {name: "kurumi-proxy", img: kurumi, description: "SSHをHTTPで偽装してくれる", link: "kurumi-proxy", lang: "Rust"},
-    {name: "ポートフォリオv1", img: pv1, description: "初代ポートフォリオ", link: "portfolio_sato_kaito ", lang: "TS(React)"},
-    {name: "ポートフォリオv2", img: pv2, description: "二代目ポートフォリオ", link: "portfolio2", lang: "TS(React)"},
-    {name: "ポートフォリオv3", img: pv3, description: "このページ", link: "portfolio_v3", lang: "TS(Svelte)"},
+    {
+      name: "インモラル大学Webサービス",
+      img: imu,
+      summary: "インモラル大学のWebサービス",
+      description: `インモラル大学の情報管理に必要になった(マイクラサーバなど)。職場で使うGoaに慣れておきたかった。`
+      + `友人に業務では通じないと指摘されたコードの保守性の低さをこの際Layered Architectureを取り入れる(モノにする)ことで改めておきたかった。`,
+      link: "IMUweb",
+      lang: "TS, Go, SQL",
+      tech: "SvelteKit, Goa, sqlc, JWT Auth, PostgreSQL, MinIO, Docker, nginx(リバプロ)",
+    },
+    {
+      name: "meigens-api / Tankas",
+      img: meigens,
+      summary: "名言管理API / 短歌共有アプリ",
+      description: `高専教員が発する名言を管理するために考案されたのが名言API。`
+      + `高専1年次に私によってC++で開発されFlaskでAPI化されたものが初代。以降私や友人によってバカみたいに色々な亜種が開発されている。`
+      + `このmeigen"s"-APIは名言管理をグループごとに出来るように拡張されている。「これ、短歌共有アプリに応用できるんじゃね？」と思い、Svelteでフロントも作った。`
+      + `認証は5分でexpireするJWTの発行でステートレスにやっている。`
+      + `トークンリフレッシュ時にトークン検証のみを行うことでDBアクセスを減らす工夫をしている。`
+      + `インフラもフロントもバックエンドも何もかも全部自分一人で作ったプロジェクトとしてはこれが初めてで、だいぶコードが汚く不安定である。`
+      + `ちなみに友人が開発したDiscord API対応の亜種もある。`
+      + `自宅サーバでホストしていたが、死んだ。放置している。`
+      + `作る気力はないが、もっとちゃんとしたアーキテクチャのものを作り直したいなぁとは思っている。`,
+      link: "tankas",
+      lang: "Go, SQL, TS",
+      tech: "SvelteKit, Gin, JWT Auth, PostgreSQL, WebSocket, Docker, nginx(リバプロ)",
+    },
+    {
+      name: "kurumi-proxy",
+      img: kurumi,
+      summary: "SSHをHTTPで偽装してくれる",
+      description: `高専寮の回線はプロキシ・FWを通ることになっていて、SSHが通らない。困ったので偽装することにして、作った。使ってはいない。`
+      + `日本の昨今の情勢で声高に言えることではないが、ハッカー精神的なノリでこれくらいのことは許して欲しいものである。`
+      + `TCP/IP プログラミングの基本中の基本みたいなことをちょっとだけ学んだ。`,
+      link: "kurumi-proxy",
+      lang: "Rust",
+      tech: "tokio",
+    },
+    {
+      name: "DIrBackup",
+      img: dirbackup,
+      summary: "差分バックアップしてくれる",
+      description: `マイクラサーバのバックアップをフルバックアップでやるのはちょっと無駄が多いかなと思い、練習がてら実装した。`
+      + `ただチャンクのデータファイルを解析しないと本当の意味での差分バックアップは出来ないと知り、無用の長物となっている。`,
+      link: "DIrBackup",
+      lang: "Java",
+      tech: "特になし",
+    },
+    {
+      name: "CronParser",
+      img: cronparser,
+      summary: "Crontabの設定を解釈して次の実行時刻を教えてくれる",
+      description: "APIという言葉の意味をよく知らない時代に作った。マイクラサーバのバックアップのために作ったが、使っていない。無用の長物。",
+      link: "CronParser",
+      lang: "Java",
+      tech: "特になし",
+    },
+    {
+      name: "gl_kadai",
+      img: gl_kadai,
+      summary: "3DオブジェクトファイルをOpenGLで描画するやつ",
+      description: "高専の課題で作った。↑の説明の通りである。OpenGLでオブジェクトを描画して回してくれる。",
+      link: "gl_kadai",
+      lang: "C",
+      tech: "OpenGL",
+    },
+    {
+      name: "ポートフォリオv1",
+      img: pv1,
+      summary: "初代ポートフォリオ",
+      description: "就活用にテキトウに作った。",
+      link: "portfolio_sato_kaito ",
+      lang: "TS",
+      tech: "React",
+    },
+    {
+      name: "ポートフォリオv2",
+      img: pv2,
+      summary: "二代目ポートフォリオ",
+      description: "初代のデザインが終わっているので作り直した。",
+      link: "portfolio2",
+      lang: "TS",
+      tech: "React",
+    },
+    {
+      name: "ポートフォリオv3",
+      img: pv3,
+      summary: "このページ",
+      description: `なんか書き直したくなって書き直した。Svelteを初めて使ったのがこのポートフォリオ。糖衣構文としてReactよりSvelteの方が合理的に思えたのでSvelteに移行した。`
+      + `ちょっとパワーアップして、私が作った曲を聴けるようになっている。それから、静的コンテンツなのでSSGを使うようになった(今更？)。`,
+      link: "portfolio_v3",
+      lang: "TS",
+      tech: "Svelte",
+    },
   ]
 </script>
 
@@ -24,34 +111,34 @@
 <div id="works">
   {#each products as product}
     <div class="work clickable" on:click={() => window.open("https://github.com/skpub/" + product.link, "_blank")}>
-      <img src={product.img} alt="">
-      <h2>{product.name}</h2>
-      <p class="deskription">{product.description}</p>
-      <p>{product.lang}</p>
+      <div class="work-img">
+        <img src={product.img} alt="">
+      </div>
+      <div class="work-info">
+        <h2>{product.name}</h2>
+        <p class="summary">{product.summary}</p>
+        <p>背景・内容: {product.description}</p>
+        <p>言語: {product.lang}</p>
+        <p>使用技術: {product.tech}</p>
+      </div>
     </div>
   {/each}
 </div>
 
 <style>
   #works {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     .work {
       display: flex;
-      flex-flow: column;
+      flex-flow: row;
       margin: 12px;
       border-radius: 18px;
       padding: 24px;
       background-color: var(--background_s);
-      /* width: calc(100% / 3 - 24px - 2 * 24px); */
-      max-width: 300px;
-      img {
-        width: 66%;
-        margin: 0 auto;
-      }
-      .deskription {
-        flex: 1;
+      .work-img {
+        img {
+          margin: 0 auto;
+        }
       }
     }
   }
@@ -60,11 +147,30 @@
     background-color: var(--background_w) !important;
     transform: translate(2px, 2px);
   }
+  @media (min-width: 791px) {
+    .work div {
+      padding-left: 24px;
+    }
+    .work {
+      .work-img {
+        img {
+          max-width: 300px;
+        }
+      }
+    }
+  }
   @media (max-width: 790px) {
     #works {
       .work {
-        width: 100%;
-        max-width: none;
+        margin: 0;
+        margin-bottom: 24px;
+        border-radius: 0;
+        flex-flow: column;
+        .work-img {
+          img {
+            max-width: min(100%, 300px);
+          }
+        }
       }
     }
   }
