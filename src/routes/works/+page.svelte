@@ -37,6 +37,18 @@
       tech: "SvelteKit, Gin, JWT Auth, PostgreSQL, WebSocket, Docker, nginx(リバプロ)",
     },
     {
+      name: "ポートフォリオv3",
+      img: pv3,
+      summary: "このページ",
+      description: `なんか書き直したくなって書き直した。Svelteを初めて使ったのがこのポートフォリオ。糖衣構文としてReactよりSvelteの方が合理的に思えたのでSvelteに移行した。`
+      + `ちょっとパワーアップして、私が作った曲を聴けるようになっている。それから、静的コンテンツなのでSSGを使うようになった(今更？)。`
+      + `あと、毎回手動でデプロイしているのが意味不明なので、Jenkinsを使ってCI/CDするようにした。`
+      + `Jenkinsの鯖も自宅Proxmox VEのVMで立て、Yamaha RTXで作ったDMZ上に置いてそいつにnatしている`,
+      link: "portfolio_v3",
+      lang: "TS",
+      tech: "Svelte, Jenkins(CI/CD, GitHub webhook)",
+    },
+    {
       name: "kurumi-proxy",
       img: kurumi,
       summary: "SSHをHTTPで偽装してくれる",
@@ -76,15 +88,6 @@
       tech: "OpenGL",
     },
     {
-      name: "ポートフォリオv1",
-      img: pv1,
-      summary: "初代ポートフォリオ",
-      description: "就活用にテキトウに作った。",
-      link: "portfolio_sato_kaito ",
-      lang: "TS",
-      tech: "React",
-    },
-    {
       name: "ポートフォリオv2",
       img: pv2,
       summary: "二代目ポートフォリオ",
@@ -94,14 +97,13 @@
       tech: "React",
     },
     {
-      name: "ポートフォリオv3",
-      img: pv3,
-      summary: "このページ",
-      description: `なんか書き直したくなって書き直した。Svelteを初めて使ったのがこのポートフォリオ。糖衣構文としてReactよりSvelteの方が合理的に思えたのでSvelteに移行した。`
-      + `ちょっとパワーアップして、私が作った曲を聴けるようになっている。それから、静的コンテンツなのでSSGを使うようになった(今更？)。`,
-      link: "portfolio_v3",
+      name: "ポートフォリオv1",
+      img: pv1,
+      summary: "初代ポートフォリオ",
+      description: "就活用にテキトウに作った。",
+      link: "portfolio_sato_kaito ",
       lang: "TS",
-      tech: "Svelte",
+      tech: "React",
     },
   ]
 </script>
