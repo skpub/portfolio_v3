@@ -149,8 +149,8 @@
     --background_s: hsl(40, 7%, 16%);
     --background_w: hsl(40, 7%, 13%);
     --foreground:   hsl(0, 0%, 100%);
-    --foreground2:  hsl(324, 100%, 82%);
-    --foreground3:  hsl(188, 67%, 75%);
+    --foreground2:  hsl(324, 90%, 79%);
+    --foreground3:  hsl(210, 67%, 79%);
     --shadow:       hsl(36, 6%, 16%);
   }
   :root.light {
