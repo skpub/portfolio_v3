@@ -102,6 +102,10 @@
       <div class="table-cell"><span>Jenkins</span></div>
       <div class="table-cell"><span>CI/CDに使っている。</span></div>
     </div>
+    <div class="table-row">
+      <div class="table-cell"><span>nginx</span></div>
+      <div class="table-cell"><span>静的サイトのホストはもちろん、リバプロとしても結構使っている。</span></div>
+    </div>
   </div>
 </div>
 
@@ -136,6 +140,13 @@
 </div>
 
 <style>
+  h2 {
+      color: var(--foreground3);
+  }
+  .table-cell {
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
   .table-cell:nth-child(1) {
     width: 100px;
   }
