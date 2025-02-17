@@ -1,38 +1,13 @@
-# create-svelte
+# ポートフォリオ
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+ポートフォリオ三代目である。作り過ぎである。一回で満足して欲しい。
 
-## Creating a project
+以下の通りの簡素な構成である。
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+* インフラ
+    1. nginx
+    1. GitHub Webhooks (CI/CD: master ブランチの push で発火)
+    1. Jenkins (CI/CD: npm build して rsync してデプロイ)
+    1. 自宅鯖(Proxmox VE 上に Jenkins と nginx のVMがそれぞれいる)
+* フロントエンドフレームワーク
+    1. Svelte 5 (SSG)
