@@ -5,25 +5,26 @@
   <div class="table">
     <div class="table-row">
       <div class="table-cell"><span>Go</span></div>
-      <div class="table-cell"><span>gin(API設計と実装), golang-jwt(APIのJWT認証・認可), sqlc</span></div>
+      <div class="table-cell"><span>Goa v3, gin(API設計と実装), golang-jwt(APIのJWT認証・認可), sqlc</span></div>
     </div>
     <div class="table-row">
       <div class="table-cell"><span>Python</span></div>
-      <div class="table-cell"><span>Flack(API設計と実装)</span></div>
+      <div class="table-cell"><span>Flask(API設計と実装)</span></div>
     </div>
     <div class="table-row">
       <div class="table-cell"><span>Java</span></div>
-      <div class="table-cell"><span>{`
-        Webのバックエンドとして何かフレームワークを使った経験は無いが、
-        crontabの設定ファイルを解釈するライブラリや差分バックアップライブラリなどを作ったことがある。`}</span></div>
+      <div class="table-cell"><span>
+        {`マイクラJEのPaperサーバプラグイン開発が多少出来る。` 
+        + `Webのバックエンドとして何かフレームワークを使った経験は無いが、`
+        + `crontabの設定ファイルを解釈するライブラリや差分バックアップライブラリなどを作ったことがある。`}</span></div>
     </div>
     <div class="table-row">
       <div class="table-cell"><span>JS/TS</span></div>
-      <div class="table-cell"><span>React(Vite, Tanstack Router), Svelte (コイツらをここに書いて良いのか知らんが)</span></div>
+      <div class="table-cell"><span>React, SvelteKit</span></div>
     </div>
     <div class="table-row">
       <div class="table-cell"><span>SQL</span></div>
-      <div class="table-cell"><span>正規化や外部キー云々など、基本的な事はわかる。あとmeigens-apiを作るくらいには書ける。</span></div>
+      <div class="table-cell"><span>正規化や外部キー云々など、基本的な事はわかる。</span></div>
     </div>
     <div class="table-row">
       <div class="table-cell"><span></span></div>
@@ -41,15 +42,15 @@
     </div>
     <div class="table-row">
       <div class="table-cell"><span>Haskell</span></div>
-      <div class="table-cell"><span>コンピュータ的に嬉しい言語化は別として、書く側としては良いと思うんだ。</span></div>
+      <div class="table-cell"><span>私は良いと思うんだ。</span></div>
     </div>
     <div class="table-row">
       <div class="table-cell"><span>C/C++</span></div>
-      <div class="table-cell"><span>を使うくらいならRustを使いたい。Cはまぁ好き。だが仕事で使いたくはない。</span></div>
+      <div class="table-cell"><span>を使うくらいならRustを使いたい。Cはまぁ好き。</span></div>
     </div>
     <div class="table-row">
       <div class="table-cell"><span>C#</span></div>
-      <div class="table-cell"><span>高専でフォームアプリケーションを作らされた。今どきならReact Nativeの方が良いと思う。</span></div>
+      <div class="table-cell"><span>高専でフォームアプリケーションを作らされた。</span></div>
     </div>
   </div>
 </div>
@@ -73,7 +74,7 @@
   <div class="table">
     <div class="table-row">
       <div class="table-cell"><span>Git</span></div>
-      <div class="table-cell"><span>流石によく使う。GitHubも流石によく使う。</span></div>
+      <div class="table-cell"><span>流石によく使う。GitHubも流石によく使う。GitHub Webhooks経由でCI/CDなどはよくやる。</span></div>
     </div>
     <div class="table-row">
       <div class="table-cell"><span>VSCode</span></div>
@@ -81,13 +82,13 @@
     </div>
     <div class="table-row">
       <div class="table-cell"><span>IntelliJ IDEA</span></div>
-      <div class="table-cell"><span></span>Javaは基本これで書く。ただしVim拡張を入れないと使えない。</div>
+      <div class="table-cell"><span>Javaは基本これで書く。ただしVim拡張を入れないと使えない。</span></div>
     </div>
   </div>
 </div>
 
 <div class="box_container">
-  <h2>使っている仮想化関係の技術やソフトウェア</h2>
+  <h2>使っているインフラ・仮想化・デプロイ関係の技術やソフトウェア</h2>
   <div class="table">
     <div class="table-row">
       <div class="table-cell"><span>Docker</span></div>
@@ -96,6 +97,10 @@
     <div class="table-row">
       <div class="table-cell"><span>Proxmox VE</span></div>
       <div class="table-cell"><span>自宅サーバのハイパバイザとして使っている。</span></div>
+    </div>
+    <div class="table-row">
+      <div class="table-cell"><span>Jenkins</span></div>
+      <div class="table-cell"><span>CI/CDに使っている。</span></div>
     </div>
   </div>
 </div>
@@ -106,8 +111,8 @@
     <div class="table-row">
       <div class="table-cell"><span>OS</span></div>
       <div class="table-cell"><span>{`
-        Arch Linux CentOS Stream, Ubuntuなどをよく使う。
-        特にCentOS Streamは現在自宅サーバでこのポートフォリオをマイクラサーバをホストするのに使っている。`}</span></div>
+        Arch Linux, CentOS Stream, Ubuntuなどをよく使う。
+        特にCentOS Streamは現在自宅サーバでこのポートフォリオとマイクラサーバをホストするのに使っている。`}</span></div>
     </div>
   </div>
 </div>
