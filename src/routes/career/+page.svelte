@@ -94,6 +94,10 @@
     </div>
     <h2 class="title">今に至る</h2>
   </div>
+
+  <div class="box_container">
+    <h2 class="title_future">(予定) 2026/04 フラー株式会社 入社(サーバーサイドエンジニア)</h2>
+  </div>
 </div>
 
 <style>
@@ -110,6 +114,10 @@
   }
   .title {
     color: var(--foreground3);
+    margin: 0;
+  }
+  .title_future {
+    color: var(--foreground2);
     margin: 0;
   }
 </style>
