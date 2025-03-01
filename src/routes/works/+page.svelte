@@ -2,6 +2,7 @@
   import pv1 from "$lib/assets/portfolio_v1.webp"
   import pv2 from "$lib/assets/portfolio_v2.webp"
   import pv3 from "$lib/assets/portfolio_v3.webp"
+  import seriessynth from "$lib/assets/seriessynth.webp"
   import dirbackup from "$lib/assets/dirbackup.webp"
   import cronparser from "$lib/assets/cronparser.webp"
   import gl_kadai from "$lib/assets/TONGKING2.webp"
@@ -35,6 +36,22 @@
       link: "tankas",
       lang: "Go, SQL, TS",
       tech: "SvelteKit, Gin, JWT Auth, PostgreSQL, WebSocket, Docker, nginx(リバプロ)",
+    },
+    {
+      name: "SeriesSynth",
+      img: seriessynth,
+      summary: "倍音成分の量を指定するオシレータを備えたシンセサイザ",
+      description: `普通のシンセサイザは、サイン波・三角波・矩形波・ノコギリ波`
+      + `などの基本的な波形を指定するだけのオシレータを備えているものが殆どである。`
+      + `それに対してこのシンセサイザは、それぞれの倍音成分の強さをUIで指定して、`
+      + `それによって波形を生成するオシレータを備えている。`
+      + `元々オシレータだけを作っていたが、友人にADSRを実装しろと脅されたので、`
+      + `実装した。どうせなのでついでにAHDSRにしておいた。`
+      + `GitHub Actions を用いて、タグが付いた時に自動でリリースされる。`
+      + `VST3とClapで公開している。`,
+      link: "SeriesSynth",
+      lang: "Rust",
+      tech: "nih-plug(VST3, Clap, MIDI), GitHub Actions (CI/CD)"
     },
     {
       name: "ポートフォリオv3",
