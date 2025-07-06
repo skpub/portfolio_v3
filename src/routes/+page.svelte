@@ -15,7 +15,7 @@
       </div>
       <div class="table-row">
         <div class="table-cell">所属</div>
-        <div class="table-cell">新潟大学大学院自然科学研究科数理物質科学専攻 M1</div>
+        <div class="table-cell">新潟大学大学院自然科学研究科数理物質科学専攻 M2</div>
       </div>
       <div class="table-row">
         <div class="table-cell">資格</div>
