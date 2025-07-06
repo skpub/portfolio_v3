@@ -1,8 +1,9 @@
 pipeline {
     agent {
         docker {
-            image 'node:23'
-            args '--user root'
+            image 'node:24-bullseye'
+            args '-u 0:0'
+            reuseNode true
         }
     }
     environment {
@@ -51,7 +52,7 @@ pipeline {
                         sh '''
                             chmod 600 "${SSH_KEY}"
                             export RSYNC_RSH="ssh -i ${SSH_KEY} -o StrictHostKeyChecking=no"
-                            rsync -avz ./build/ ${deploy_user}@${deploy_host}:${deploy_path}
+                            rsync -avz --delete ./build/ ${deploy_user}@${deploy_host}:${deploy_path}
                         '''
                     }
                 }
