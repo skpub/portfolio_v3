@@ -137,10 +137,10 @@
   <h2>万年筆</h2>
   <div class="margin24">
     <p>誤解を恐れずに鉛筆やシャーペンとの明確な違いを(極端に)述べておくと、<span class="foreground3">「筆圧が要らないので疲れない」</span>というのがデカい</p>
-    <p>小学6年生の時に書き初めのために<span><a href="https://www.pilot.co.jp/products/pen/fountain/fountain/kakuno/">KAKUNO(Pilot)</a></span>{`を
-      購入して以来万年筆大好き人間になった。
-      今のメインは`}<span><a href="https://sailor.co.jp/product/11-1224/">Sailorの四季織(SHIKIORI)名月</a></span>{`と
-      いうやつ。`}</p>
+    <p>小学6年生の時に書き初めのために<span><a href="https://www.pilot.co.jp/products/pen/fountain/fountain/kakuno/">KAKUNO(Pilot)</a></span>
+    {`を購入して以来万年筆大好き人間になった。`+
+      `今のメインは`}<span><a href="https://sailor.co.jp/product/11-1224/">Sailorの四季織(SHIKIORI)名月</a></span>{
+        `というやつ。`}</p>
   </div>
 </div>
 
