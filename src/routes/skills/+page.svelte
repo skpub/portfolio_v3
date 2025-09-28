@@ -1,3 +1,9 @@
+<script>
+  import MaxWidth from "../../components/maxWidth.svelte";
+
+</script>
+
+<MaxWidth>
 <h1>できること</h1>
 
 <div class="box_container">
@@ -138,6 +144,7 @@
     </div>
   </div>
 </div>
+</MaxWidth>
 
 <style>
   h2 {

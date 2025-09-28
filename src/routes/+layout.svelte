@@ -1,70 +1,70 @@
 <script lang="ts">
-  import { writable } from "svelte/store"
-  import { onMount } from "svelte"
-  import sun from "$lib/assets/sun.svg"
-  import moon from "$lib/assets/moon.svg"
-  import bag from "$lib/assets/bag.svg"
-  import hobby from "$lib/assets/hobby.svg"
-  import prof from "$lib/assets/prof.svg"
-  import build from "$lib/assets/build.svg"
-  import works from "$lib/assets/works.svg"
-  import server from "$lib/assets/server.svg"
-  import { page } from "$app/stores"
-  import { goto } from "$app/navigation"
+import { onMount } from "svelte";
+import { writable } from "svelte/store";
+import { goto } from "$app/navigation";
+import { page } from "$app/stores";
+import bag from "$lib/assets/bag.svg";
+import build from "$lib/assets/build.svg";
+import hobby from "$lib/assets/hobby.svg";
+import moon from "$lib/assets/moon.svg";
+import prof from "$lib/assets/prof.svg";
+import server from "$lib/assets/server.svg";
+import sun from "$lib/assets/sun.svg";
+import works from "$lib/assets/works.svg";
 
+const isDarkMode = writable(false);
 
-  let isDarkMode = writable(false)
+function toggleMode() {
+	isDarkMode.update((v) => !v);
+}
 
-  function toggleMode() {
-    isDarkMode.update(v => !v)
+onMount(() => {
+  const mediaDark = window.matchMedia("(prefers-color-scheme: dark");
+  isDarkMode.set(mediaDark.matches)
+	isDarkMode.subscribe((v) => {
+		if (v) {
+			document.documentElement.classList.remove("light");
+			document.documentElement.classList.add("dark");
+		} else {
+			document.documentElement.classList.remove("dark");
+			document.documentElement.classList.add("light");
+		}
+	});
+
+  const listener = (_: MediaQueryListEvent) => {
+    isDarkMode.set(mediaDark.matches)
   }
 
-  onMount(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      isDarkMode.update(v => true)
-    }
-    isDarkMode.subscribe(v => {
-      if (v) {
-        document.documentElement.classList.remove("light")
-        document.documentElement.classList.add("dark")
-      } else {
-        document.documentElement.classList.remove("dark")
-        document.documentElement.classList.add("light")
-      }
-    })
-  })
+  mediaDark.addEventListener("change", listener)
 
-  const tabs = [
-    {id: "/", title: "プロフィール", icon: prof},
-    {id: "/career", title: "経歴", icon: bag},
-    {id: "/hobby", title: "趣味", icon: hobby},
-    {id: "/works", title: "成果物", icon: works},
-    {id: "/skills", title: "できること", icon: build},
-    {id: "/server", title: "自宅サーバ", icon: server},
-  ]
+  return () => {
+    mediaDark.removeEventListener("change", listener)
+  }
+});
 
+const tabs = [
+	{ id: "/", title: "プロフィール", icon: prof },
+	{ id: "/career", title: "経歴", icon: bag },
+	{ id: "/hobby", title: "趣味", icon: hobby },
+	{ id: "/works", title: "成果物", icon: works },
+	{ id: "/skills", title: "できること", icon: build },
+	{ id: "/server", title: "自宅サーバ", icon: server },
+];
 </script>
 
-<div id="header" class="clickable" on:click={toggleMode}>
-  {#if $isDarkMode}
-    <div style='mask-image: url("{sun}");'></div>
-  {:else}
-    <div style='mask-image: url("{moon}");' ></div>
-  {/if}
-</div>
 <div id="main">
   <div id="tab_container">
     {#each tabs as tab}
       {#if tab.id === $page.url.pathname}
-        <div id="selected" class="tab">
+        <button id="selected" class="tab">
           <div style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
-        </div>
+        </button>
       {:else}
-        <div class="tab-shadow tab clickable" on:click={goto(tab.id)}>
+        <button class="tab-shadow tab clickable" on:click={() => goto(tab.id)}>
           <div style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
-        </div>
+        </button>
       {/if}
     {/each}
     <div id="tab_padding" class="tab-shadow"></div>
@@ -106,6 +106,10 @@
   :global(a) {
     text-decoration: none;
     color: var(--foreground2);
+  }
+  :global(button) {
+    border: none;
+    background: none;
   }
   :global(.foreground3) {
     color: var(--foreground3);
@@ -163,25 +167,6 @@
     --shadow:       hsl(30, 6%, 86%);
   }
 
-  #header {
-    z-index: 1;
-    display: flex;
-    justify-content: end;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 48px;
-    div {
-      margin: 8px;
-      background-color: var(--foreground);
-      height: 32px;
-      width: 32px;
-    }
-    div:hover {
-      background: var(--foreground2);
-    }
-  }
-
   #tab_padding {
     flex: 1;
   }
@@ -196,7 +181,6 @@
     display: flex;
     align-items: center;
     div {
-      /* background: var(--foreground); */
       background: gray;
       mask-repeat: no-repeat;
       mask-size: cover;
@@ -240,7 +224,7 @@
     flex-grow: 1;
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1200px) {
     .tab:not(#selected) {
       p {
         display: none;
@@ -248,10 +232,10 @@
     }
   }
 
-  @media screen and (max-width: 1520px) and (min-width: 1000px) {
+  @media screen and (max-width: 1520px) and (min-width: 1200px) {
     .tab {
       flex: 1;
-      max-width: 160px;
+      width: 160px;
     }
   }
 
@@ -278,6 +262,25 @@
       border-right: none;
       box-sizing: border-box;
       background: var(--background);
+    }
+  }
+  @media screen and (max-width: 700px) {
+    #tab_container {
+      height: 32px;
+    }
+    .tab {
+      div {
+        margin: 5px;
+      }
+    }
+    :global(.margin24) {
+      margin: 14px;
+    }
+    :global(.box_container) {
+      margin-left: 0;
+      margin-right: 0;
+      padding: 12px;
+      border-radius: 8px;
     }
   }
   @media screen and (min-width: 1520px) {

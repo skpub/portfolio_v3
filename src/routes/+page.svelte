@@ -1,7 +1,11 @@
 <script lang="ts">
-  import face from "$lib/assets/face.webp"
-  const today = new Date()
-  const age = today.getFullYear() - 2002 - (today.getMonth() <= 2 && today.getDate() < 11 ? 1 : 0)
+import face from "$lib/assets/face.webp";
+
+const today = new Date();
+const age =
+	today.getFullYear() -
+	2002 -
+	(today.getMonth() <= 2 && today.getDate() < 11 ? 1 : 0);
 </script>
 
 <div id="profile">
@@ -15,7 +19,7 @@
       </div>
       <div class="table-row">
         <div class="table-cell">所属</div>
-        <div class="table-cell">新潟大学大学院自然科学研究科数理物質科学専攻 M2</div>
+        <div class="table-cell">新潟大学大学院自然科学研究科数理物質科学専攻 M2 (いわゆる数学科)</div>
       </div>
       <div class="table-row">
         <div class="table-cell">資格</div>
@@ -23,7 +27,7 @@
       </div>
       <div class="table-row">
         <div class="table-cell">現住所</div>
-        <div class="table-cell">新潟市</div>
+        <div class="table-cell">新潟市西区</div>
       </div>
       <div class="table-row">
         <div class="table-cell">趣味</div>
@@ -35,7 +39,7 @@
       </div>
       <div class="table-row">
         <div class="table-cell">X</div>
-        <div class="table-cell"><a href='https://x.com/OMGR_dearinsu'>OMGR_dearinsu</a> (閲覧を推奨しないが歓迎する)</div>
+        <div class="table-cell"><a href='https://x.com/OMGR_dearinsu'>OMGR_dearinsu</a></div>
       </div>
       <div class="table-row">
         <div class="table-cell">Email</div>
@@ -51,17 +55,15 @@
     justify-content: center;
     align-items: center;
     min-height: calc(100dvh - 48px);
-    img {
-      border-radius: 5%;
-      width: 200px;
-      height: 200px;
-    }
     h1 {
       font-family: var(--letter1);
     }
   }
 
   #face {
+    width: 200px;
+    height: 200px;
+    border-radius: 5%;
     margin-left: 24px;
     box-shadow: 10px 10px 20px color-mix(in srgb, var(--background) 95%, black 5%),
                 -10px -10px 20px color-mix(in srgb, var(--background) 95%, white 5%);
@@ -69,6 +71,7 @@
 
   #mail {
     font-family: monospace;
+    font-size: 16px;
   }
   @media (max-aspect-ratio: 1/1) {
     #face {
@@ -86,6 +89,22 @@
       top: 0;
       right: 0;
       left: 0;
+    }
+  }
+  /* SE対策 */
+  @media (max-height: 700px) {
+    #face {
+      width: 180px;
+      height: 180px;
+    }
+    #profile {
+      h1 {
+        font-size: 28px;
+        margin: 0;
+      }
+    }
+    .table-cell {
+      font-size: 14px;
     }
   }
 </style>
