@@ -134,7 +134,8 @@ const tabs = [
     margin: 24px;
     padding: 24px;
     border-radius: 18px;
-    background-color: var(--background_s);
+    box-shadow: 4px 4px 4px var(--shadow),
+        -4px -4px 4px var(--light);
   }
   :global(.box_container > h2) {
     margin-top: 0;
@@ -147,24 +148,26 @@ const tabs = [
     --gothic_noto: "Noto Sans JP";
     --letter1: "Zen Kurenaido";
     color-scheme: light dark;
+    --light_light: hsl(0, 0%, 100%, 70%);
+    --light_shadow: hsl(0, 0%, 0%, 4%);
+    --dark_light: hsl(0, 0%, 100%, 10%);
+    --dark_shadow: hsl(0, 0%, 0%, 20%);
   }
   :root.dark {
-    --background:   hsl(40, 7%, 19%);
-    --background_s: hsl(40, 7%, 16%);
-    --background_w: hsl(40, 7%, 13%);
+    --background:   hsl(256, 39%, 15%);
     --foreground:   hsl(0, 0%, 100%);
-    --foreground2:  hsl(324, 90%, 79%);
-    --foreground3:  hsl(210, 67%, 79%);
-    --shadow:       hsl(36, 6%, 16%);
+    --foreground2:  hsl(324, 65%, 59%);
+    --foreground3:  hsl(240, 67%, 69%);
+    --shadow: var(--dark_shadow);
+    --light: var(--dark_light);
   }
   :root.light {
     --background:   hsl(26, 41%, 95%);
-    --background_s: hsl(26, 41%, 99%);
-    --background_w: hsl(26, 41%, 97%);
     --foreground:   hsl(23, 16%, 22%);
     --foreground2:  hsl(324, 85%, 41%);
     --foreground3:  hsl(208, 63%, 37%);
-    --shadow:       hsl(30, 6%, 86%);
+    --shadow: var(--light_shadow);
+    --light: var(--light_light);
   }
 
   #tab_padding {
@@ -191,7 +194,7 @@ const tabs = [
   }
 
   .tab-shadow {
-    background: linear-gradient(270deg, var(--shadow), color-mix(in srgb, var(--background) 95%, black 5%) 24px);
+    background: linear-gradient(270deg, var(--shadow), var(--background) 24px);
   }
 
   #tab_container {
@@ -211,9 +214,13 @@ const tabs = [
   }
 
   #selected {
-    border-bottom: 2px solid var(--foreground2);
     box-sizing: border-box;
     background: var(--background);
+    filter: drop-shadow(0px 24px 24px var(--shadow))
+            drop-shadow(0px -24px 24px var(--shadow));
+    clip-path: inset(-24px 0 -24px 0);
+    border: none;
+    border-left: solid 6px var(--foreground2);
   }
 
   #main {
@@ -256,12 +263,17 @@ const tabs = [
       }
     }
     .tab-shadow {
-      background: linear-gradient(0deg, var(--shadow), color-mix(in srgb, var(--background) 90%, black 10%) 24px);
+      background: linear-gradient(0deg, var(--shadow), var(--background) 24px);
     }
-    #selected{
+    #selected {
       border-right: none;
       box-sizing: border-box;
       background: var(--background);
+      filter: drop-shadow(24px 0 24px var(--shadow))
+              drop-shadow(-24px 0 24px var(--shadow));
+      clip-path: inset(0 -24px 0 -20px);
+      border: none;
+      border-top: solid 2px var(--foreground2);
     }
   }
   @media screen and (max-width: 700px) {

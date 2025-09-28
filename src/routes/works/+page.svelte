@@ -137,10 +137,10 @@ const products = [
 
 <MaxWidth>
   <h1>成果物</h1>
-  
+
   <div id="works">
     {#each products as product}
-      <div class="work clickable" on:click={() => window.open("https://github.com/skpub/" + product.link, "_blank")}>
+      <div class="work clickable box_container" on:click={() => window.open("https://github.com/skpub/" + product.link, "_blank")}>
         <div class="work-img">
           <img src={product.img} alt="">
         </div>
@@ -162,10 +162,6 @@ const products = [
     .work {
       display: flex;
       flex-flow: row;
-      margin: 12px;
-      border-radius: 18px;
-      padding: 24px;
-      background-color: var(--background_s);
       .work-img {
         img {
           margin: 0 auto;
@@ -173,10 +169,12 @@ const products = [
       }
     }
   }
+  .work {
+    transition: all ease-in .1s;
+  }
   .work:hover {
-    box-shadow: -2px -2px 0px var(--foreground2);
-    background-color: var(--background_w) !important;
-    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 4px var(--light),
+        -4px -4px 4px var(--shadow);
   }
   @media (min-width: 791px) {
     .work div {
