@@ -9,7 +9,11 @@ const age =
 </script>
 
 <div id="profile">
-  <img src={face} alt="" id="face">
+  <div id="face_container">
+    <div id="face">
+      <img src={face} alt="">
+    </div>
+  </div>
   <div id="bio" class="margin24">
     <h1 id="name">佐藤 海音 | Sato Kaito</h1>
     <div class="table">
@@ -60,13 +64,25 @@ const age =
     }
   }
 
+  #face_container {
+    position: relative;
+    z-index: 0;
+  }
+
   #face {
     width: 200px;
     height: 200px;
     border-radius: 5%;
     margin-left: 24px;
-    box-shadow: 10px 10px 20px color-mix(in srgb, var(--background) 95%, black 5%),
-                -10px -10px 20px color-mix(in srgb, var(--background) 95%, white 5%);
+    box-shadow: 
+      inset 4px 4px 4px var(--light),
+      inset -4px 4px 4px var(--shadow);
+    img {
+      border-radius: 5%;
+      position: relative;
+      z-index: -1;
+      width: 100%;
+    }
   }
 
   #mail {
