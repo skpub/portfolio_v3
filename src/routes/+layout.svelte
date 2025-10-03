@@ -75,12 +75,6 @@ const tabs = [
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic:wght@400&family=Zen+Kurenaido&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400&family=Noto+Sans+JP:wght@100..900&display=swap');
-
   :global(body) {
     background-color: var(--background);
     * {
