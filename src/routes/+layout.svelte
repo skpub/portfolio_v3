@@ -8,6 +8,7 @@ import build from "$lib/assets/build.svg";
 import hobby from "$lib/assets/hobby.svg";
 import moon from "$lib/assets/moon.svg";
 import prof from "$lib/assets/prof.svg";
+import research from "$lib/assets/research.svg";
 import server from "$lib/assets/server.svg";
 import sun from "$lib/assets/sun.svg";
 import works from "$lib/assets/works.svg";
@@ -19,8 +20,8 @@ function toggleMode() {
 }
 
 onMount(() => {
-  const mediaDark = window.matchMedia("(prefers-color-scheme: dark");
-  isDarkMode.set(mediaDark.matches)
+	const mediaDark = window.matchMedia("(prefers-color-scheme: dark");
+	isDarkMode.set(mediaDark.matches);
 	isDarkMode.subscribe((v) => {
 		if (v) {
 			document.documentElement.classList.remove("light");
@@ -31,19 +32,20 @@ onMount(() => {
 		}
 	});
 
-  const listener = (_: MediaQueryListEvent) => {
-    isDarkMode.set(mediaDark.matches)
-  }
+	const listener = (_: MediaQueryListEvent) => {
+		isDarkMode.set(mediaDark.matches);
+	};
 
-  mediaDark.addEventListener("change", listener)
+	mediaDark.addEventListener("change", listener);
 
-  return () => {
-    mediaDark.removeEventListener("change", listener)
-  }
+	return () => {
+		mediaDark.removeEventListener("change", listener);
+	};
 });
 
 const tabs = [
 	{ id: "/", title: "プロフィール", icon: prof },
+	{ id: "/research", title: "研究", icon: research },
 	{ id: "/career", title: "経歴", icon: bag },
 	{ id: "/hobby", title: "趣味", icon: hobby },
 	{ id: "/works", title: "成果物", icon: works },
