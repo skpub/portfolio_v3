@@ -59,12 +59,12 @@ const tabs = [
     {#each tabs as tab}
       {#if tab.id === $page.url.pathname}
         <button id="selected" class="tab">
-          <div style='mask-image: url("{tab.icon}")'></div>
+          <div class="page_icon" style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
         </button>
       {:else}
         <button class="tab-shadow tab clickable" on:click={() => goto(tab.id)}>
-          <div style='mask-image: url("{tab.icon}")'></div>
+          <div class="page_icon" style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
         </button>
       {/if}
@@ -228,10 +228,11 @@ const tabs = [
   }
 
   @media screen and (max-width: 1200px) {
-    .tab:not(#selected) {
-      p {
-        display: none;
-      }
+    .page_icon {
+      display: inline;
+    }
+    p {
+      display: none;
     }
   }
 
@@ -239,6 +240,9 @@ const tabs = [
     .tab {
       flex: 1;
       width: 160px;
+    }
+    .page_icon {
+      display: none;
     }
   }
 
@@ -274,6 +278,10 @@ const tabs = [
   }
   @media screen and (max-width: 700px) {
     #tab_container {
+      flex-grow: 1;
+    }
+    /*
+    #tab_container {
       height: 32px;
     }
     .tab {
@@ -300,6 +308,7 @@ const tabs = [
         margin-right: 10px;
       }
     }
+      */
   }
 
 </style>

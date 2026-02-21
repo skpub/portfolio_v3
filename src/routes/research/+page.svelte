@@ -1,6 +1,6 @@
 <script>
-import MaxWidth from "../../components/maxWidth.svelte";
 import master_thesis from "$lib/assets/修士論文.pdf";
+import MaxWidth from "../../components/maxWidth.svelte";
 </script>
 
 <MaxWidth>
