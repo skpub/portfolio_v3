@@ -1,12 +1,16 @@
 <script lang="ts">
 import { onMount } from "svelte";
+import { writable } from "svelte/store";
+import { goto } from "$app/navigation";
 import { page } from "$app/stores";
 import bag from "$lib/assets/bag.svg";
 import build from "$lib/assets/build.svg";
 import hobby from "$lib/assets/hobby.svg";
+import moon from "$lib/assets/moon.svg";
 import prof from "$lib/assets/prof.svg";
 import research from "$lib/assets/research.svg";
 import server from "$lib/assets/server.svg";
+import sun from "$lib/assets/sun.svg";
 import works from "$lib/assets/works.svg";
 
 const siteUrl = "https://www.sk-dev.org";
@@ -56,18 +60,27 @@ $: personJsonLd = JSON.stringify({
 	jobTitle: "サーバーサイドエンジニア",
 });
 
+const isDarkMode = writable(false);
+
+function toggleMode() {
+	isDarkMode.update((v) => !v);
+}
+
 onMount(() => {
-	const mediaDark = window.matchMedia("(prefers-color-scheme: dark)");
+	const mediaDark = window.matchMedia("(prefers-color-scheme: dark");
+	isDarkMode.set(mediaDark.matches);
+	isDarkMode.subscribe((v) => {
+		if (v) {
+			document.documentElement.classList.remove("light");
+			document.documentElement.classList.add("dark");
+		} else {
+			document.documentElement.classList.remove("dark");
+			document.documentElement.classList.add("light");
+		}
+	});
 
-	const applyTheme = () => {
-		document.documentElement.classList.toggle("dark", mediaDark.matches);
-		document.documentElement.classList.toggle("light", !mediaDark.matches);
-	};
-
-	applyTheme();
-
-	const listener = () => {
-		applyTheme();
+	const listener = (_: MediaQueryListEvent) => {
+		isDarkMode.set(mediaDark.matches);
 	};
 
 	mediaDark.addEventListener("change", listener);
@@ -105,15 +118,15 @@ const tabs = [
   <div id="tab_container">
     {#each tabs as tab}
       {#if tab.id === $page.url.pathname}
-        <a id="selected" class="tab" href={tab.id} aria-current="page">
+        <button id="selected" class="tab">
           <div class="page_icon" style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
-        </a>
+        </button>
       {:else}
-        <a class="tab-shadow tab clickable" href={tab.id}>
+        <button class="tab-shadow tab clickable" on:click={() => goto(tab.id)}>
           <div class="page_icon" style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
-        </a>
+        </button>
       {/if}
     {/each}
     <div id="tab_padding" class="tab-shadow"></div>

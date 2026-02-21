@@ -140,9 +140,9 @@ const products = [
 
   <div id="works">
     {#each products as product}
-      <a class="work clickable box_container" href={`https://github.com/skpub/${product.link}`} target="_blank" rel="noopener noreferrer" aria-label={`${product.name} のGitHubリポジトリを開く`}>
+      <div class="work clickable box_container" on:click={() => window.open("https://github.com/skpub/" + product.link, "_blank")}>
         <div class="work-img">
-          <img src={product.img} alt={product.name} loading="lazy" decoding="async">
+          <img src={product.img} alt="">
         </div>
         <div class="work-info">
           <h2>{product.name}</h2>
@@ -151,7 +151,7 @@ const products = [
           <p>言語: {product.lang}</p>
           <p>使用技術: {product.tech}</p>
         </div>
-      </a>
+      </div>
     {/each}
   </div>
 </MaxWidth>

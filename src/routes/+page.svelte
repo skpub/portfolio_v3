@@ -11,7 +11,7 @@ const age =
 <div id="profile">
   <div id="face_container">
     <div id="face">
-      <img src={face} alt="佐藤海音のプロフィール写真" width="200" height="200" decoding="async" fetchpriority="high">
+      <img src={face} alt="">
     </div>
   </div>
   <div id="bio" class="margin24">
@@ -39,11 +39,11 @@ const age =
       </div>
       <div class="table-row">
         <div class="table-cell">GitHub</div>
-        <div class="table-cell"><a href='https://github.com/skpub' target='_blank' rel='noopener noreferrer' aria-label='GitHubプロフィールを開く'>skpub</a></div>
+        <div class="table-cell"><a href='https://github.com/skpub'>skpub</a></div>
       </div>
       <div class="table-row">
         <div class="table-cell">X</div>
-        <div class="table-cell"><a href='https://x.com/OMGR_dearinsu' target='_blank' rel='noopener noreferrer' aria-label='Xプロフィールを開く'>OMGR_dearinsu</a></div>
+        <div class="table-cell"><a href='https://x.com/OMGR_dearinsu'>OMGR_dearinsu</a></div>
       </div>
       <div class="table-row">
         <div class="table-cell">Email</div>
