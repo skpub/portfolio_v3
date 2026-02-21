@@ -1,39 +1,73 @@
 <script lang="ts">
 import { onMount } from "svelte";
-import { writable } from "svelte/store";
-import { goto } from "$app/navigation";
 import { page } from "$app/stores";
 import bag from "$lib/assets/bag.svg";
 import build from "$lib/assets/build.svg";
 import hobby from "$lib/assets/hobby.svg";
-import moon from "$lib/assets/moon.svg";
 import prof from "$lib/assets/prof.svg";
 import research from "$lib/assets/research.svg";
 import server from "$lib/assets/server.svg";
-import sun from "$lib/assets/sun.svg";
 import works from "$lib/assets/works.svg";
 
-const isDarkMode = writable(false);
+const siteUrl = "https://www.sk-dev.org";
+const defaultTitle = "佐藤海音 (Sato Kaito) | ポートフォリオ";
+const defaultDescription = "サーバーサイドエンジニア佐藤海音(Sato Kaito)のポートフォリオ。これまで作ってきたものや使える技術などの詳細について。";
+const routeMeta: Record<string, { title: string; description: string }> = {
+	"/": {
+		title: defaultTitle,
+		description: defaultDescription,
+	},
+	"/research": {
+		title: "研究 | 佐藤海音ポートフォリオ",
+		description: "佐藤海音の研究テーマ・取り組みを紹介するページです。",
+	},
+	"/career": {
+		title: "経歴 | 佐藤海音ポートフォリオ",
+		description: "佐藤海音の学歴・活動歴をまとめたページです。",
+	},
+	"/hobby": {
+		title: "趣味 | 佐藤海音ポートフォリオ",
+		description: "佐藤海音の趣味や好きなものを紹介するページです。",
+	},
+	"/works": {
+		title: "成果物 | 佐藤海音ポートフォリオ",
+		description: "佐藤海音が開発した成果物・技術スタック・背景をまとめたページです。",
+	},
+	"/skills": {
+		title: "できること | 佐藤海音ポートフォリオ",
+		description: "佐藤海音が扱える技術・領域を紹介するページです。",
+	},
+	"/server": {
+		title: "自宅サーバ | 佐藤海音ポートフォリオ",
+		description: "佐藤海音の自宅サーバ・ネットワーク構成をまとめたページです。",
+	},
+};
 
-function toggleMode() {
-	isDarkMode.update((v) => !v);
-}
+$: pathname = $page.url.pathname;
+$: currentMeta = routeMeta[pathname] ?? routeMeta["/"];
+$: canonicalUrl = `${siteUrl}${pathname}`;
+$: personJsonLd = JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "佐藤 海音",
+	alternateName: "Sato Kaito",
+	url: siteUrl,
+	sameAs: ["https://github.com/skpub", "https://x.com/OMGR_dearinsu"],
+	jobTitle: "サーバーサイドエンジニア",
+});
 
 onMount(() => {
-	const mediaDark = window.matchMedia("(prefers-color-scheme: dark");
-	isDarkMode.set(mediaDark.matches);
-	isDarkMode.subscribe((v) => {
-		if (v) {
-			document.documentElement.classList.remove("light");
-			document.documentElement.classList.add("dark");
-		} else {
-			document.documentElement.classList.remove("dark");
-			document.documentElement.classList.add("light");
-		}
-	});
+	const mediaDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-	const listener = (_: MediaQueryListEvent) => {
-		isDarkMode.set(mediaDark.matches);
+	const applyTheme = () => {
+		document.documentElement.classList.toggle("dark", mediaDark.matches);
+		document.documentElement.classList.toggle("light", !mediaDark.matches);
+	};
+
+	applyTheme();
+
+	const listener = () => {
+		applyTheme();
 	};
 
 	mediaDark.addEventListener("change", listener);
@@ -54,19 +88,32 @@ const tabs = [
 ];
 </script>
 
+<svelte:head>
+  <title>{currentMeta.title}</title>
+  <meta name="description" content={currentMeta.description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content={currentMeta.title} />
+  <meta property="og:description" content={currentMeta.description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta name="twitter:title" content={currentMeta.title} />
+  <meta name="twitter:description" content={currentMeta.description} />
+  <script type="application/ld+json">{personJsonLd}</script>
+</svelte:head>
+
 <div id="main">
   <div id="tab_container">
     {#each tabs as tab}
       {#if tab.id === $page.url.pathname}
-        <button id="selected" class="tab">
+        <a id="selected" class="tab" href={tab.id} aria-current="page">
           <div class="page_icon" style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
-        </button>
+        </a>
       {:else}
-        <button class="tab-shadow tab clickable" on:click={() => goto(tab.id)}>
+        <a class="tab-shadow tab clickable" href={tab.id}>
           <div class="page_icon" style='mask-image: url("{tab.icon}")'></div>
           <p>{tab.title}</p>
-        </button>
+        </a>
       {/if}
     {/each}
     <div id="tab_padding" class="tab-shadow"></div>

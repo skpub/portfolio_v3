@@ -20,9 +20,9 @@ import MaxWidth from "../../components/maxWidth.svelte";
   </p>
 
   <div id="gallery">
-    <img src={homeNW} alt="">
-    <img src={server} alt="">
-    <img src={router} alt="">
+    <img src={homeNW} alt="自宅ネットワーク構成図" loading="lazy" decoding="async">
+    <img src={server} alt="自宅サーバ構成図" loading="lazy" decoding="async">
+    <img src={router} alt="ルータ設定の図" loading="lazy" decoding="async">
   </div>
 </MaxWidth>
 
