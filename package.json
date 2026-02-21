@@ -1,25 +1,22 @@
 {
-	"name": "portfolio-v3",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "^6.1.0",
-		"@sveltejs/adapter-cloudflare": "^7.2.4",
-		"@sveltejs/adapter-static": "^3.0.9",
-		"@sveltejs/kit": "^2.43.5",
-		"@sveltejs/vite-plugin-svelte": "^6.2.1",
-		"sass-embedded": "^1.93.2",
-		"svelte": "^5.39.6",
-		"svelte-check": "^4.3.2",
-		"typescript": "^5.9.2",
-		"vite": "^7.1.7"
-	},
-	"type": "module"
+  "name": "portfolio-v3",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.32",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.11",
+    "@types/react": "18.3.24",
+    "@types/react-dom": "18.3.7",
+    "typescript": "5.9.2"
+  }
 }

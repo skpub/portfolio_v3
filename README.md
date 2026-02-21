@@ -1,13 +1,16 @@
 # ポートフォリオ
 
-ポートフォリオ三代目である。作り過ぎである。一回で満足して欲しい。
+ポートフォリオ三代目。今回は Next.js (App Router) へ移行した版です。
 
-以下の通りの簡素な構成である。
+## 開発
 
-* インフラ
-    1. nginx
-    1. GitHub Webhooks (CI/CD: master ブランチの push で発火)
-    1. Jenkins (CI/CD: npm build して rsync してデプロイ)
-    1. 自宅鯖(Proxmox VE 上に Jenkins と nginx のVMがそれぞれいる)
-* フロントエンドフレームワーク
-    1. Svelte 5 (SSG)
+```bash
+npm run dev
+```
+
+## ビルド
+
+```bash
+npm run build
+npm run start
+```
